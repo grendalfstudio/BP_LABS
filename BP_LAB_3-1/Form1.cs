@@ -12,7 +12,6 @@ namespace BP_LAB_3_1
 {
     public partial class Form1 : Form
     {
-        
         public Form1()
         {
             InitializeComponent();
@@ -33,13 +32,13 @@ namespace BP_LAB_3_1
             }
         }
 
-        static int size = 0;
+        static int size = 0; // Capacity of database
         string type;
         int place;
         float weight;
         int id;
-        int index = 0;
-        Item[] items;
+        int index = 0; // Current size of database
+        Item[] items;   
 
         private void BtnSetSize_Click(object sender, EventArgs e)
         {
@@ -49,6 +48,7 @@ namespace BP_LAB_3_1
                 items = new Item[size];
             } catch (Exception)
             {
+                //TODO: change into messageBox
                 textSize.Text = "Incorrect input";
             }
         }
@@ -63,6 +63,7 @@ namespace BP_LAB_3_1
                 id = int.Parse(textID.Text);
             } catch (Exception)
             {
+                //TODO: change into messageBox
                 label1.Text = "Incorrect input";
             }
             try{
@@ -72,6 +73,7 @@ namespace BP_LAB_3_1
                 label1.Text = "Added";
             } catch (IndexOutOfRangeException)
             {
+                //TODO: change into messageBox
                 label1.Text = "IndexOutOfRangeException";
             }               
 
@@ -86,6 +88,7 @@ namespace BP_LAB_3_1
                 textIDView.Text = Convert.ToString(items[showIndex].id);
             } catch (Exception)
             {
+                //TODO: change into messageBox
                 label12.Text = "Something went wrong\n" +
                                 "i.e. IndexOutOfRangeException";
             }
