@@ -53,6 +53,7 @@
             this.labelID = new System.Windows.Forms.Label();
             this.labelType = new System.Windows.Forms.Label();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.ShowBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericIndex)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,7 @@
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(100, 20);
             this.textID.TabIndex = 2;
+            this.textID.TextChanged += new System.EventHandler(this.textID_TextChanged);
             // 
             // textWeight
             // 
@@ -87,6 +89,7 @@
             this.textWeight.Name = "textWeight";
             this.textWeight.Size = new System.Drawing.Size(100, 20);
             this.textWeight.TabIndex = 3;
+            this.textWeight.TextChanged += new System.EventHandler(this.textWeight_TextChanged);
             // 
             // textPlace
             // 
@@ -94,6 +97,7 @@
             this.textPlace.Name = "textPlace";
             this.textPlace.Size = new System.Drawing.Size(100, 20);
             this.textPlace.TabIndex = 4;
+            this.textPlace.TextChanged += new System.EventHandler(this.textPlace_TextChanged);
             // 
             // textType
             // 
@@ -122,6 +126,7 @@
             // 
             // ShowBox
             // 
+            this.ShowBox.Controls.Add(this.label12);
             this.ShowBox.Controls.Add(this.labelRecord);
             this.ShowBox.Controls.Add(this.btnShow);
             this.ShowBox.Controls.Add(this.numericIndex);
@@ -135,7 +140,7 @@
             this.ShowBox.Controls.Add(this.textTypeView);
             this.ShowBox.Location = new System.Drawing.Point(447, 45);
             this.ShowBox.Name = "ShowBox";
-            this.ShowBox.Size = new System.Drawing.Size(274, 142);
+            this.ShowBox.Size = new System.Drawing.Size(274, 162);
             this.ShowBox.TabIndex = 8;
             this.ShowBox.TabStop = false;
             this.ShowBox.Text = "Database";
@@ -274,6 +279,14 @@
             this.labelPlace.TabIndex = 17;
             this.labelPlace.Text = "Place:";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(71, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +343,7 @@
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label labelType;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.Label label12;
     }
 }
 
