@@ -65,12 +65,13 @@ namespace BP_LAB_3_1
             }
             try{
                 items[index] = new Item(type, place, weight, id);
+                index++;
+                label1.Text = "Added";
             } catch (IndexOutOfRangeException)
             {
                 label1.Text = "IndexOutOfRangeException";
             }
-            index++;
-            label1.Text = "Added";
+            
 
         }       
     }
