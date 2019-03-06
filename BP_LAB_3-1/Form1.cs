@@ -32,32 +32,33 @@ namespace BP_LAB_3_1
             }
         }
 
-        static int size = 0; // Capacity of database
+        static int capacity = 0; // Capacity of database
         string type;
         int place;
         float weight;
         int id;
-        int index = 0; // Current size of database
-        Item[] items;   
+        int size = 0; // Current size of database
+        Item[] items; // Massive of Items
 
         private void BtnSetSize_Click(object sender, EventArgs e)
         {
             try
             {
-                size = int.Parse(textSize.Text);
-                items = new Item[size];
-                textSize.Enabled = false;
+                capacity = int.Parse(textBoxCapacity.Text);
+                items = new Item[capacity];
+
+                textBoxCapacity.Enabled = false;
                 btnSetSize.Enabled = false;
                 btnAdd.Enabled = true;
-                textType.Enabled = true;
-                textPlace.Enabled = true;
-                textWeight.Enabled = true;
-                textID.Enabled = true;
+                textBoxType.Enabled = true;
+                textBoxPlace.Enabled = true;
+                textBoxWeight.Enabled = true;
+                textBoxID.Enabled = true;
 
-            } catch (Exception)
+            }
+            catch (Exception)
             {
-                //TODO: change into messageBox
-                textSize.Text = "Incorrect input";
+                MessageBox.Show("Incorrect input", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -65,47 +66,53 @@ namespace BP_LAB_3_1
         {
             try
             {
-                type = textType.Text;
-                place = int.Parse(textPlace.Text);
-                weight = float.Parse(textWeight.Text);
-                id = int.Parse(textID.Text);
-            } catch (Exception)
-            {
-                label1.Text = "Incorrect input";
+                type = textBoxType.Text;
+                place = int.Parse(textBoxPlace.Text);
+                weight = float.Parse(textBoxWeight.Text);
+                id = int.Parse(textBoxID.Text);
             }
-            try{
+            catch (Exception)
+            {
+                MessageBox.Show("Incorrect input", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
                 Item item = new Item(type, place, weight, id);
-                items[index] = item;
-                index++;
-                label1.Text = "Added";
-            } catch (IndexOutOfRangeException)
+                items[size] = item;
+                size++;
+
+                MessageBox.Show("Added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (IndexOutOfRangeException)
             {
-                //TODO: change into messageBox
-                label1.Text = "IndexOutOfRangeException";
+                MessageBox.Show("IndexOutOfRangeException", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-            } catch (Exception)
+            }
+            catch (Exception)
             {
-                label1.Text = "Incorrect input";
+                MessageBox.Show("IndexOutOfRangeException", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }               
 
         }
-         private void btnShow_Click(object sender, EventArgs e)
+         private void BtnShow_Click(object sender, EventArgs e)
         {
             int showIndex = Convert.ToInt16(numericIndex.Value);
-            try{
-                textTypeView.Text = items[showIndex].type;
-                textPlaceView.Text = Convert.ToString(items[showIndex].place);
-                textWeightView.Text = Convert.ToString(items[showIndex].weight);
-                textIDView.Text = Convert.ToString(items[showIndex].id);
-            } catch (Exception)
+            try
             {
-                //TODO: change into messageBox
-                label12.Text = "Something went wrong\n" +
-                                "i.e. IndexOutOfRangeException";
+                textBoxTypeShow.Text = items[showIndex].type;
+                textBoxPlaceView.Text = Convert.ToString(items[showIndex].place);
+                textBoxWeightView.Text = Convert.ToString(items[showIndex].weight);
+                textBoxIDView.Text = Convert.ToString(items[showIndex].id);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong\n i.e. IndexOutOfRangeException",
+                                "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void textType_TextChanged(object sender, EventArgs e)
+        private void TextBoxType_TextChanged(object sender, EventArgs e)
         {
             label1.Text = "";
         }

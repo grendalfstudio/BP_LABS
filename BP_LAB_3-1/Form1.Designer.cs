@@ -28,28 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textSize = new System.Windows.Forms.TextBox();
+            this.textBoxCapacity = new System.Windows.Forms.TextBox();
             this.btnSetSize = new System.Windows.Forms.Button();
-            this.textID = new System.Windows.Forms.TextBox();
-            this.textWeight = new System.Windows.Forms.TextBox();
-            this.textPlace = new System.Windows.Forms.TextBox();
-            this.textType = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxWeight = new System.Windows.Forms.TextBox();
+            this.textBoxPlace = new System.Windows.Forms.TextBox();
+            this.textBoxType = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.ShowBox = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.labelRecord = new System.Windows.Forms.Label();
-            this.btnShow = new System.Windows.Forms.Button();
+            this.btnShowRecord = new System.Windows.Forms.Button();
             this.numericIndex = new System.Windows.Forms.NumericUpDown();
-            this.textIDView = new System.Windows.Forms.TextBox();
+            this.textBoxIDView = new System.Windows.Forms.TextBox();
             this.labelIDShow = new System.Windows.Forms.Label();
             this.labelWeightShow = new System.Windows.Forms.Label();
             this.labelPlaceShow = new System.Windows.Forms.Label();
             this.labelTypeShow = new System.Windows.Forms.Label();
-            this.textWeightView = new System.Windows.Forms.TextBox();
-            this.textPlaceView = new System.Windows.Forms.TextBox();
-            this.textTypeView = new System.Windows.Forms.TextBox();
-            this.labelSize = new System.Windows.Forms.Label();
+            this.textBoxWeightView = new System.Windows.Forms.TextBox();
+            this.textBoxPlaceView = new System.Windows.Forms.TextBox();
+            this.textBoxTypeShow = new System.Windows.Forms.TextBox();
+            this.labelCapacity = new System.Windows.Forms.Label();
             this.labelWeight = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
             this.labelType = new System.Windows.Forms.Label();
@@ -58,13 +57,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericIndex)).BeginInit();
             this.SuspendLayout();
             // 
-            // textSize
+            // textBoxCapacity
             // 
-            this.textSize.Location = new System.Drawing.Point(115, 6);
-            this.textSize.MaxLength = 3;
-            this.textSize.Name = "textSize";
-            this.textSize.Size = new System.Drawing.Size(47, 20);
-            this.textSize.TabIndex = 0;
+            this.textBoxCapacity.Location = new System.Drawing.Point(115, 6);
+            this.textBoxCapacity.MaxLength = 3;
+            this.textBoxCapacity.Name = "textBoxCapacity";
+            this.textBoxCapacity.Size = new System.Drawing.Size(47, 20);
+            this.textBoxCapacity.TabIndex = 0;
             // 
             // btnSetSize
             // 
@@ -76,36 +75,40 @@
             this.btnSetSize.UseVisualStyleBackColor = true;
             this.btnSetSize.Click += new System.EventHandler(this.BtnSetSize_Click);
             // 
-            // textID
+            // textBoxID
             // 
-            this.textID.Location = new System.Drawing.Point(62, 120);
-            this.textID.Name = "textID";
-            this.textID.Size = new System.Drawing.Size(100, 20);
-            this.textID.TabIndex = 2;
-            this.textID.TextChanged += new System.EventHandler(this.textID_TextChanged);
+            this.textBoxID.Enabled = false;
+            this.textBoxID.Location = new System.Drawing.Point(62, 120);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxID.TabIndex = 2;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textID_TextChanged);
             // 
-            // textWeight
+            // textBoxWeight
             // 
-            this.textWeight.Location = new System.Drawing.Point(62, 94);
-            this.textWeight.Name = "textWeight";
-            this.textWeight.Size = new System.Drawing.Size(100, 20);
-            this.textWeight.TabIndex = 3;
-            this.textWeight.TextChanged += new System.EventHandler(this.textWeight_TextChanged);
+            this.textBoxWeight.Enabled = false;
+            this.textBoxWeight.Location = new System.Drawing.Point(62, 94);
+            this.textBoxWeight.Name = "textBoxWeight";
+            this.textBoxWeight.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWeight.TabIndex = 3;
+            this.textBoxWeight.TextChanged += new System.EventHandler(this.textWeight_TextChanged);
             // 
-            // textPlace
+            // textBoxPlace
             // 
-            this.textPlace.Location = new System.Drawing.Point(62, 68);
-            this.textPlace.Name = "textPlace";
-            this.textPlace.Size = new System.Drawing.Size(100, 20);
-            this.textPlace.TabIndex = 4;
-            this.textPlace.TextChanged += new System.EventHandler(this.textPlace_TextChanged);
+            this.textBoxPlace.Enabled = false;
+            this.textBoxPlace.Location = new System.Drawing.Point(62, 68);
+            this.textBoxPlace.Name = "textBoxPlace";
+            this.textBoxPlace.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlace.TabIndex = 4;
+            this.textBoxPlace.TextChanged += new System.EventHandler(this.textPlace_TextChanged);
             // 
-            // textType
+            // textBoxType
             // 
-            this.textType.Location = new System.Drawing.Point(62, 42);
-            this.textType.Name = "textType";
-            this.textType.Size = new System.Drawing.Size(100, 20);
-            this.textType.TabIndex = 5;
+            this.textBoxType.Enabled = false;
+            this.textBoxType.Location = new System.Drawing.Point(62, 42);
+            this.textBoxType.Name = "textBoxType";
+            this.textBoxType.Size = new System.Drawing.Size(100, 20);
+            this.textBoxType.TabIndex = 5;
             // 
             // btnAdd
             // 
@@ -117,28 +120,20 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(204, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 7;
-            // 
             // ShowBox
             // 
             this.ShowBox.Controls.Add(this.label12);
             this.ShowBox.Controls.Add(this.labelRecord);
-            this.ShowBox.Controls.Add(this.btnShow);
+            this.ShowBox.Controls.Add(this.btnShowRecord);
             this.ShowBox.Controls.Add(this.numericIndex);
-            this.ShowBox.Controls.Add(this.textIDView);
+            this.ShowBox.Controls.Add(this.textBoxIDView);
             this.ShowBox.Controls.Add(this.labelIDShow);
             this.ShowBox.Controls.Add(this.labelWeightShow);
             this.ShowBox.Controls.Add(this.labelPlaceShow);
             this.ShowBox.Controls.Add(this.labelTypeShow);
-            this.ShowBox.Controls.Add(this.textWeightView);
-            this.ShowBox.Controls.Add(this.textPlaceView);
-            this.ShowBox.Controls.Add(this.textTypeView);
+            this.ShowBox.Controls.Add(this.textBoxWeightView);
+            this.ShowBox.Controls.Add(this.textBoxPlaceView);
+            this.ShowBox.Controls.Add(this.textBoxTypeShow);
             this.ShowBox.Location = new System.Drawing.Point(261, 9);
             this.ShowBox.Name = "ShowBox";
             this.ShowBox.Size = new System.Drawing.Size(274, 131);
@@ -163,14 +158,14 @@
             this.labelRecord.TabIndex = 15;
             this.labelRecord.Text = "Record Number:";
             // 
-            // btnShow
+            // btnShowRecord
             // 
-            this.btnShow.Location = new System.Drawing.Point(195, 72);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(55, 45);
-            this.btnShow.TabIndex = 5;
-            this.btnShow.Text = "Show a record";
-            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShowRecord.Location = new System.Drawing.Point(195, 72);
+            this.btnShowRecord.Name = "btnShowRecord";
+            this.btnShowRecord.Size = new System.Drawing.Size(55, 45);
+            this.btnShowRecord.TabIndex = 5;
+            this.btnShowRecord.Text = "Show a record";
+            this.btnShowRecord.UseVisualStyleBackColor = true;
             // 
             // numericIndex
             // 
@@ -179,12 +174,12 @@
             this.numericIndex.Size = new System.Drawing.Size(55, 20);
             this.numericIndex.TabIndex = 4;
             // 
-            // textIDView
+            // textBoxIDView
             // 
-            this.textIDView.Location = new System.Drawing.Point(74, 97);
-            this.textIDView.Name = "textIDView";
-            this.textIDView.Size = new System.Drawing.Size(100, 20);
-            this.textIDView.TabIndex = 3;
+            this.textBoxIDView.Location = new System.Drawing.Point(74, 97);
+            this.textBoxIDView.Name = "textBoxIDView";
+            this.textBoxIDView.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIDView.TabIndex = 3;
             // 
             // labelIDShow
             // 
@@ -222,35 +217,35 @@
             this.labelTypeShow.TabIndex = 14;
             this.labelTypeShow.Text = "Type:";
             // 
-            // textWeightView
+            // textBoxWeightView
             // 
-            this.textWeightView.Location = new System.Drawing.Point(74, 71);
-            this.textWeightView.Name = "textWeightView";
-            this.textWeightView.Size = new System.Drawing.Size(100, 20);
-            this.textWeightView.TabIndex = 2;
+            this.textBoxWeightView.Location = new System.Drawing.Point(74, 71);
+            this.textBoxWeightView.Name = "textBoxWeightView";
+            this.textBoxWeightView.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWeightView.TabIndex = 2;
             // 
-            // textPlaceView
+            // textBoxPlaceView
             // 
-            this.textPlaceView.Location = new System.Drawing.Point(74, 45);
-            this.textPlaceView.Name = "textPlaceView";
-            this.textPlaceView.Size = new System.Drawing.Size(100, 20);
-            this.textPlaceView.TabIndex = 1;
+            this.textBoxPlaceView.Location = new System.Drawing.Point(74, 45);
+            this.textBoxPlaceView.Name = "textBoxPlaceView";
+            this.textBoxPlaceView.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlaceView.TabIndex = 1;
             // 
-            // textTypeView
+            // textBoxTypeShow
             // 
-            this.textTypeView.Location = new System.Drawing.Point(74, 19);
-            this.textTypeView.Name = "textTypeView";
-            this.textTypeView.Size = new System.Drawing.Size(100, 20);
-            this.textTypeView.TabIndex = 0;
+            this.textBoxTypeShow.Location = new System.Drawing.Point(74, 19);
+            this.textBoxTypeShow.Name = "textBoxTypeShow";
+            this.textBoxTypeShow.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTypeShow.TabIndex = 0;
             // 
-            // labelSize
+            // labelCapacity
             // 
-            this.labelSize.AutoSize = true;
-            this.labelSize.Location = new System.Drawing.Point(12, 9);
-            this.labelSize.Name = "labelSize";
-            this.labelSize.Size = new System.Drawing.Size(97, 13);
-            this.labelSize.TabIndex = 9;
-            this.labelSize.Text = "Number of records:";
+            this.labelCapacity.AutoSize = true;
+            this.labelCapacity.Location = new System.Drawing.Point(12, 9);
+            this.labelCapacity.Name = "labelCapacity";
+            this.labelCapacity.Size = new System.Drawing.Size(97, 13);
+            this.labelCapacity.TabIndex = 9;
+            this.labelCapacity.Text = "Number of records:";
             // 
             // labelWeight
             // 
@@ -297,16 +292,17 @@
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.labelWeight);
-            this.Controls.Add(this.labelSize);
+            this.Controls.Add(this.labelCapacity);
             this.Controls.Add(this.ShowBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textType);
-            this.Controls.Add(this.textPlace);
-            this.Controls.Add(this.textWeight);
-            this.Controls.Add(this.textID);
+            this.Controls.Add(this.textBoxType);
+            this.Controls.Add(this.textBoxPlace);
+            this.Controls.Add(this.textBoxWeight);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.btnSetSize);
-            this.Controls.Add(this.textSize);
+            this.Controls.Add(this.textBoxCapacity);
+            this.MaximumSize = new System.Drawing.Size(562, 190);
+            this.MinimumSize = new System.Drawing.Size(562, 190);
             this.Name = "Form1";
             this.Text = "Struct";
             this.ShowBox.ResumeLayout(false);
@@ -319,27 +315,26 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textSize;
+        private System.Windows.Forms.TextBox textBoxCapacity;
         private System.Windows.Forms.Button btnSetSize;
-        private System.Windows.Forms.TextBox textID;
-        private System.Windows.Forms.TextBox textWeight;
-        private System.Windows.Forms.TextBox textPlace;
-        private System.Windows.Forms.TextBox textType;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxWeight;
+        private System.Windows.Forms.TextBox textBoxPlace;
+        private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox ShowBox;
         private System.Windows.Forms.NumericUpDown numericIndex;
-        private System.Windows.Forms.TextBox textIDView;
-        private System.Windows.Forms.TextBox textWeightView;
-        private System.Windows.Forms.TextBox textPlaceView;
-        private System.Windows.Forms.TextBox textTypeView;
+        private System.Windows.Forms.TextBox textBoxIDView;
+        private System.Windows.Forms.TextBox textBoxWeightView;
+        private System.Windows.Forms.TextBox textBoxPlaceView;
+        private System.Windows.Forms.TextBox textBoxTypeShow;
         private System.Windows.Forms.Label labelRecord;
-        private System.Windows.Forms.Button btnShow;
+        private System.Windows.Forms.Button btnShowRecord;
         private System.Windows.Forms.Label labelIDShow;
         private System.Windows.Forms.Label labelWeightShow;
         private System.Windows.Forms.Label labelPlaceShow;
         private System.Windows.Forms.Label labelTypeShow;
-        private System.Windows.Forms.Label labelSize;
+        private System.Windows.Forms.Label labelCapacity;
         private System.Windows.Forms.Label labelWeight;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.Label labelType;
