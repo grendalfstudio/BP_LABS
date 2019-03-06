@@ -76,6 +76,6 @@ namespace BP_LAB_3_1
             }
             
 
-        }       
+        }
     }
 }
