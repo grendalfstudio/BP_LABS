@@ -19,10 +19,10 @@ namespace BP_LAB_3_1
         }
         struct Item
         {
-            private string type;
-            private int place;
-            private float weight;
-            private int id;
+            public string type;
+            public int place;
+            public float weight;
+            public int id;
 
             public Item(string type, int place, float weight, int id)
             {
@@ -73,9 +73,47 @@ namespace BP_LAB_3_1
             } catch (IndexOutOfRangeException)
             {
                 label1.Text = "IndexOutOfRangeException";
-            }
-            
+            }               
 
+        }
+         private void btnShow_Click(object sender, EventArgs e)
+        {
+            int showIndex = Convert.ToInt16(numericIndex.Value);
+            try{
+                textTypeView.Text = items[showIndex].type;
+                textPlaceView.Text = Convert.ToString(items[showIndex].place);
+                textWeightView.Text = Convert.ToString(items[showIndex].weight);
+                textIDView.Text = Convert.ToString(items[showIndex].id);
+            } catch (Exception)
+            {
+                label12.Text = "Something went wrong\n" +
+                                "i.e. IndexOutOfRangeException";
+            }
+        }
+
+        private void textType_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "";
+        }
+
+        private void numericIndex_ValueChanged(object sender, EventArgs e)
+        {
+            label12.Text = "";
+        }
+
+        private void textPlace_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "";
+        }
+
+        private void textWeight_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "";
+        }
+
+        private void textID_TextChanged(object sender, EventArgs e)
+        {
+            label1.Text = "";
         }
     }
 }
