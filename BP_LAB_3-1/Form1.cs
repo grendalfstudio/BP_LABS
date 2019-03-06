@@ -12,6 +12,11 @@ namespace BP_LAB_3_1
 {
     public partial class Form1 : Form
     {
+        
+        public Form1()
+        {
+            InitializeComponent();
+        }
         struct Item
         {
             private string type;
@@ -27,10 +32,6 @@ namespace BP_LAB_3_1
                 this.id = id;
             }
         }
-        public Form1()
-        {
-            InitializeComponent();
-        }
 
         static int size = 0;
         string type;
@@ -38,18 +39,19 @@ namespace BP_LAB_3_1
         float weight;
         int id;
         int index = 0;
+        Item[] items;
 
         private void BtnSetSize_Click(object sender, EventArgs e)
         {
             try
             {
                 size = int.Parse(textSize.Text);
+                items = new Item[size];
             } catch (Exception)
             {
                 textSize.Text = "Incorrect input";
             }
         }
-        Item[] items = new Item[size];
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -64,7 +66,8 @@ namespace BP_LAB_3_1
                 label1.Text = "Incorrect input";
             }
             try{
-                items[index] = new Item(type, place, weight, id);
+                Item item = new Item(type, place, weight, id);
+                items[index] = item;
                 index++;
                 label1.Text = "Added";
             } catch (IndexOutOfRangeException)
