@@ -45,6 +45,13 @@ namespace BP_LAB_3_1
             try
             {
                 capacity = int.Parse(textBoxCapacity.Text);
+                if (capacity == 0)
+                {
+
+                    MessageBox.Show("Size mustn't be a zero!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxCapacity.Text = "";
+                    return;
+                }
                 items = new Item[capacity];
 
                 textBoxCapacity.Enabled = false;
@@ -54,12 +61,15 @@ namespace BP_LAB_3_1
                 textBoxPlace.Enabled = true;
                 textBoxWeight.Enabled = true;
                 textBoxID.Enabled = true;
-
             }
             catch (Exception)
             {
                 MessageBox.Show("Incorrect input", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCapacity.Text = "";
+                return;
             }
+
+            numericIndex.Maximum = capacity - 1;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -74,32 +84,27 @@ namespace BP_LAB_3_1
             catch (Exception)
             {
                 MessageBox.Show("Incorrect input", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCapacity.Text = "";
                 return;
             }
-            try
-            {
-                Item item = new Item(type, place, weight, id);
-                items[size] = item;
-                size++;
 
-                MessageBox.Show("Added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (IndexOutOfRangeException)
-            {
-                MessageBox.Show("IndexOutOfRangeException", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("IndexOutOfRangeException", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }               
+            Item item = new Item(type, place, weight, id);
+            items[size] = item;
+            size++;
 
+            textBoxType.Text = "";
+            textBoxPlace.Text = "";
+            textBoxWeight.Text = "";
+            textBoxID.Text = "";
+
+            MessageBox.Show("Added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-         private void BtnShow_Click(object sender, EventArgs e)
+        private void btnShowRecord_Click(object sender, EventArgs e)
         {
             int showIndex = Convert.ToInt16(numericIndex.Value);
             try
             {
+
                 textBoxTypeShow.Text = items[showIndex].type;
                 textBoxPlaceView.Text = Convert.ToString(items[showIndex].place);
                 textBoxWeightView.Text = Convert.ToString(items[showIndex].weight);
@@ -107,34 +112,9 @@ namespace BP_LAB_3_1
             }
             catch (Exception)
             {
-                MessageBox.Show("Something went wrong\n i.e. IndexOutOfRangeException",
+                MessageBox.Show("Something goes wrong\n f.e. IndexOutOfRangeException",
                                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void TextBoxType_TextChanged(object sender, EventArgs e)
-        {
-            label1.Text = "";
-        }
-
-        private void numericIndex_ValueChanged(object sender, EventArgs e)
-        {
-            label12.Text = "";
-        }
-
-        private void textPlace_TextChanged(object sender, EventArgs e)
-        {
-            label1.Text = "";
-        }
-
-        private void textWeight_TextChanged(object sender, EventArgs e)
-        {
-            label1.Text = "";
-        }
-
-        private void textID_TextChanged(object sender, EventArgs e)
-        {
-            label1.Text = "";
         }
     }
 }
