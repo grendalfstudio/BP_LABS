@@ -37,6 +37,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ShowBox = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.labelRecord = new System.Windows.Forms.Label();
             this.btnShow = new System.Windows.Forms.Button();
             this.numericIndex = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +54,6 @@
             this.labelID = new System.Windows.Forms.Label();
             this.labelType = new System.Windows.Forms.Label();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.ShowBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericIndex)).BeginInit();
             this.SuspendLayout();
@@ -141,10 +141,18 @@
             this.ShowBox.Controls.Add(this.textTypeView);
             this.ShowBox.Location = new System.Drawing.Point(261, 9);
             this.ShowBox.Name = "ShowBox";
-            this.ShowBox.Size = new System.Drawing.Size(274, 162);
+            this.ShowBox.Size = new System.Drawing.Size(274, 131);
             this.ShowBox.TabIndex = 8;
             this.ShowBox.TabStop = false;
             this.ShowBox.Text = "Database";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(71, 123);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(0, 13);
+            this.label12.TabIndex = 18;
             // 
             // labelRecord
             // 
@@ -280,19 +288,11 @@
             this.labelPlace.TabIndex = 17;
             this.labelPlace.Text = "Place:";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(71, 123);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(0, 13);
-            this.label12.TabIndex = 18;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 163);
+            this.ClientSize = new System.Drawing.Size(546, 151);
             this.Controls.Add(this.labelPlace);
             this.Controls.Add(this.labelType);
             this.Controls.Add(this.labelID);
@@ -308,7 +308,7 @@
             this.Controls.Add(this.btnSetSize);
             this.Controls.Add(this.textSize);
             this.Name = "Form1";
-            this.Text = "Структура";
+            this.Text = "Struct";
             this.ShowBox.ResumeLayout(false);
             this.ShowBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericIndex)).EndInit();
