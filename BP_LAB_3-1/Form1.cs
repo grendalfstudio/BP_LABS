@@ -46,6 +46,14 @@ namespace BP_LAB_3_1
             {
                 size = int.Parse(textSize.Text);
                 items = new Item[size];
+                textSize.Enabled = false;
+                btnSetSize.Enabled = false;
+                btnAdd.Enabled = true;
+                textType.Enabled = true;
+                textPlace.Enabled = true;
+                textWeight.Enabled = true;
+                textID.Enabled = true;
+
             } catch (Exception)
             {
                 //TODO: change into messageBox
@@ -63,7 +71,6 @@ namespace BP_LAB_3_1
                 id = int.Parse(textID.Text);
             } catch (Exception)
             {
-                //TODO: change into messageBox
                 label1.Text = "Incorrect input";
             }
             try{
@@ -75,6 +82,10 @@ namespace BP_LAB_3_1
             {
                 //TODO: change into messageBox
                 label1.Text = "IndexOutOfRangeException";
+                
+            } catch (Exception)
+            {
+                label1.Text = "Incorrect input";
             }               
 
         }
