@@ -19,10 +19,10 @@ namespace BP_LAB_3_1
         }
         struct Item
         {
-            public string type;
-            public int place;
-            public float weight;
-            public int id;
+            private string type;
+            private int place;
+            private float weight;
+            private int id;
 
             public Item(string type, int place, float weight, int id)
             {
@@ -31,8 +31,6 @@ namespace BP_LAB_3_1
                 this.weight = weight;
                 this.id = id;
             }
-
-            
         }
 
         static int size = 0;
@@ -49,13 +47,6 @@ namespace BP_LAB_3_1
             {
                 size = int.Parse(textSize.Text);
                 items = new Item[size];
-                textType.Enabled = true;
-                textPlace.Enabled = true;
-                textWeight.Enabled = true;
-                textID.Enabled = true;
-                textSize.Enabled = false;
-                btnSetSize.Enabled = false;
-                btnAdd.Enabled = true;
             } catch (Exception)
             {
                 textSize.Text = "Incorrect input";
@@ -85,31 +76,6 @@ namespace BP_LAB_3_1
             }
             
 
-        }
-
-        private void btnShow_Click(object sender, EventArgs e)
-        {
-            int showIndex = Convert.ToInt16(numericIndex.Value);
-            try{
-                textTypeView.Text = items[showIndex].type;
-                textPlaceView.Text = Convert.ToString(items[showIndex].place);
-                textWeightView.Text = Convert.ToString(items[showIndex].weight);
-                textIDView.Text = Convert.ToString(items[showIndex].id);
-            } catch (Exception)
-            {
-                label12.Text = "Something went wrong\n" +
-                                "i.e. IndexOutOfRangeException";
-            }
-        }
-
-        private void textType_TextChanged(object sender, EventArgs e)
-        {
-            label1.Text = "";
-        }
-
-        private void numericIndex_ValueChanged(object sender, EventArgs e)
-        {
-            label12.Text = "";
         }
     }
 }
