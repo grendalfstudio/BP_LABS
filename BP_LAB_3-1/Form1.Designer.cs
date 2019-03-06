@@ -77,6 +77,7 @@
             // 
             // textID
             // 
+            this.textID.Enabled = false;
             this.textID.Location = new System.Drawing.Point(72, 168);
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(100, 20);
@@ -85,6 +86,7 @@
             // 
             // textWeight
             // 
+            this.textWeight.Enabled = false;
             this.textWeight.Location = new System.Drawing.Point(72, 142);
             this.textWeight.Name = "textWeight";
             this.textWeight.Size = new System.Drawing.Size(100, 20);
@@ -93,6 +95,7 @@
             // 
             // textPlace
             // 
+            this.textPlace.Enabled = false;
             this.textPlace.Location = new System.Drawing.Point(72, 116);
             this.textPlace.Name = "textPlace";
             this.textPlace.Size = new System.Drawing.Size(100, 20);
@@ -101,6 +104,7 @@
             // 
             // textType
             // 
+            this.textType.Enabled = false;
             this.textType.Location = new System.Drawing.Point(72, 90);
             this.textType.Name = "textType";
             this.textType.Size = new System.Drawing.Size(100, 20);
@@ -108,6 +112,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(204, 168);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(87, 19);

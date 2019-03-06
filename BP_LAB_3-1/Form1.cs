@@ -47,6 +47,14 @@ namespace BP_LAB_3_1
             {
                 size = int.Parse(textSize.Text);
                 items = new Item[size];
+                textSize.Enabled = false;
+                btnSetSize.Enabled = false;
+                btnAdd.Enabled = true;
+                textType.Enabled = true;
+                textPlace.Enabled = true;
+                textWeight.Enabled = true;
+                textID.Enabled = true;
+
             } catch (Exception)
             {
                 textSize.Text = "Incorrect input";
@@ -61,11 +69,6 @@ namespace BP_LAB_3_1
                 place = int.Parse(textPlace.Text);
                 weight = float.Parse(textWeight.Text);
                 id = int.Parse(textID.Text);
-            } catch (Exception)
-            {
-                label1.Text = "Incorrect input";
-            }
-            try{
                 Item item = new Item(type, place, weight, id);
                 items[index] = item;
                 index++;
@@ -73,6 +76,10 @@ namespace BP_LAB_3_1
             } catch (IndexOutOfRangeException)
             {
                 label1.Text = "IndexOutOfRangeException";
+                
+            } catch (Exception)
+            {
+                label1.Text = "Incorrect input";
             }               
 
         }
