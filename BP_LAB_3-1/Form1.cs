@@ -80,6 +80,13 @@ namespace BP_LAB_3_1
                 place = int.Parse(textBoxPlace.Text);
                 weight = float.Parse(textBoxWeight.Text);
                 id = int.Parse(textBoxID.Text);
+                Item item = new Item(type, place, weight, id);
+                items[size] = item;
+                size++;
+            } catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Index out of range", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCapacity.Text = "";
             }
             catch (Exception)
             {
@@ -88,9 +95,7 @@ namespace BP_LAB_3_1
                 return;
             }
 
-            Item item = new Item(type, place, weight, id);
-            items[size] = item;
-            size++;
+            
 
             textBoxType.Text = "";
             textBoxPlace.Text = "";
@@ -101,7 +106,7 @@ namespace BP_LAB_3_1
         }
         private void btnShowRecord_Click(object sender, EventArgs e)
         {
-            int showIndex = Convert.ToInt16(numericIndex.Value);
+            short showIndex = Convert.ToInt16(numericIndex.Value);
             try
             {
 
