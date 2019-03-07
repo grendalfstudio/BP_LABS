@@ -37,7 +37,7 @@ namespace BP_LAB_3_1
         int place;
         float weight;
         int id;
-        int size = 0; // Current size of database
+        int index = 0; // Current insertion index
         Item[] items; // Massive of Items
 
         private void BtnSetSize_Click(object sender, EventArgs e)
@@ -81,8 +81,8 @@ namespace BP_LAB_3_1
                 weight = float.Parse(textBoxWeight.Text);
                 id = int.Parse(textBoxID.Text);
                 Item item = new Item(type, place, weight, id);
-                items[size] = item;
-                size++;
+                items[index] = item;
+                index++;
             } catch (IndexOutOfRangeException)
             {
                 MessageBox.Show("Index out of range", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
