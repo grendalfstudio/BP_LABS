@@ -31,15 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textMinEven = new System.Windows.Forms.TextBox();
+            this.textMax = new System.Windows.Forms.TextBox();
+            this.richTextViewFile = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnOpen = new System.Windows.Forms.ToolStripButton();
+            this.btnClose = new System.Windows.Forms.ToolStripButton();
+            this.btnCalc = new System.Windows.Forms.ToolStripButton();
+            this.btnExit = new System.Windows.Forms.ToolStripButton();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -57,9 +59,11 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.textMinEven);
+            this.tabPage1.Controls.Add(this.textMax);
+            this.tabPage1.Controls.Add(this.richTextViewFile);
             this.tabPage1.Controls.Add(this.toolStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -69,88 +73,107 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // label2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(557, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Min of elements with even numbers";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(558, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Max element";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textMinEven
+            // 
+            this.textMinEven.Location = new System.Drawing.Point(561, 148);
+            this.textMinEven.Name = "textMinEven";
+            this.textMinEven.Size = new System.Drawing.Size(100, 20);
+            this.textMinEven.TabIndex = 5;
+            // 
+            // textMax
+            // 
+            this.textMax.Location = new System.Drawing.Point(561, 67);
+            this.textMax.Name = "textMax";
+            this.textMax.Size = new System.Drawing.Size(100, 20);
+            this.textMax.TabIndex = 4;
+            // 
+            // richTextViewFile
+            // 
+            this.richTextViewFile.Location = new System.Drawing.Point(10, 31);
+            this.richTextViewFile.Name = "richTextViewFile";
+            this.richTextViewFile.Size = new System.Drawing.Size(541, 385);
+            this.richTextViewFile.TabIndex = 3;
+            this.richTextViewFile.Text = "";
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
+            this.btnOpen,
+            this.btnClose,
+            this.btnCalc,
+            this.btnExit});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(787, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // btnOpen
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
+            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(59, 22);
+            this.btnOpen.Text = "Open file";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // toolStripButton2
+            // btnClose
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.btnClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(59, 22);
+            this.btnClose.Text = "Close file";
             // 
-            // toolStripButton3
+            // btnCalc
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.btnCalc.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnCalc.Image = ((System.Drawing.Image)(resources.GetObject("btnCalc.Image")));
+            this.btnCalc.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(60, 22);
+            this.btnCalc.Text = "Calculate";
             // 
-            // toolStripButton4
+            // btnExit
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.btnExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(29, 22);
+            this.btnExit.Text = "Exit";
             // 
-            // textBox1
+            // tabPage2
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(11, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(210, 46);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(307, 322);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(793, 429);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -173,15 +196,17 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox richTextViewFile;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton btnOpen;
+        private System.Windows.Forms.ToolStripButton btnClose;
+        private System.Windows.Forms.ToolStripButton btnCalc;
+        private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textMinEven;
+        private System.Windows.Forms.TextBox textMax;
     }
 }
 
