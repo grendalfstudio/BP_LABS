@@ -97,6 +97,7 @@
             // 
             this.textMinEven.Location = new System.Drawing.Point(561, 148);
             this.textMinEven.Name = "textMinEven";
+            this.textMinEven.ReadOnly = true;
             this.textMinEven.Size = new System.Drawing.Size(100, 20);
             this.textMinEven.TabIndex = 5;
             // 
@@ -104,6 +105,7 @@
             // 
             this.textMax.Location = new System.Drawing.Point(561, 67);
             this.textMax.Name = "textMax";
+            this.textMax.ReadOnly = true;
             this.textMax.Size = new System.Drawing.Size(100, 20);
             this.textMax.TabIndex = 4;
             // 
