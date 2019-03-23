@@ -19,7 +19,7 @@ namespace BP_LAB_5
             try
             {
                 string input = richTextInput.Text;
-                int N = Convert.ToInt32(textN.Text);
+                uint N = Convert.ToUInt32(textN.Text);
 
                 string[] strArray = input.Split(' ');
                 if (N > strArray.Length)
@@ -53,6 +53,37 @@ namespace BP_LAB_5
             richTextInput.Text = "";
             richTextOutput.Text = "";
             textN.Text = "";
+        }
+
+        private void btnCalcSec_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string[] strArraySec = richTextInputSec.Text.Split(' ');
+                uint length = Convert.ToUInt32(textLength.Text);
+
+                short count = 0;
+                foreach (string str in strArraySec)
+                {
+                    if (str.Count() == length)
+                        count++;
+                }
+
+                textCount.Text = Convert.ToString(count);
+                
+            }
+            catch (Exception ex)
+            {
+                textLength.Text = "";
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClearSec_Click(object sender, EventArgs e)
+        {
+            richTextInputSec.Text = "";
+            textLength.Text = "";
+            textCount.Text = "";
         }
     }
 }

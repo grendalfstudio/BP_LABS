@@ -37,7 +37,14 @@
             this.richTextOutput = new System.Windows.Forms.RichTextBox();
             this.btnCalc = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnClearSec = new System.Windows.Forms.Button();
+            this.btnCalcSec = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textLength = new System.Windows.Forms.TextBox();
+            this.richTextInputSec = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.textCount = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,9 +71,16 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label6);
+            this.splitContainer1.Panel2.Controls.Add(this.textCount);
+            this.splitContainer1.Panel2.Controls.Add(this.btnClearSec);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCalcSec);
+            this.splitContainer1.Panel2.Controls.Add(this.label5);
+            this.splitContainer1.Panel2.Controls.Add(this.textLength);
+            this.splitContainer1.Panel2.Controls.Add(this.richTextInputSec);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Size = new System.Drawing.Size(464, 450);
-            this.splitContainer1.SplitterDistance = 220;
+            this.splitContainer1.Size = new System.Drawing.Size(464, 381);
+            this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.TabIndex = 0;
             // 
             // richTextInput
@@ -140,20 +154,83 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnClearSec
+            // 
+            this.btnClearSec.Location = new System.Drawing.Point(242, 76);
+            this.btnClearSec.Name = "btnClearSec";
+            this.btnClearSec.Size = new System.Drawing.Size(75, 21);
+            this.btnClearSec.TabIndex = 10;
+            this.btnClearSec.Text = "Clear";
+            this.btnClearSec.UseVisualStyleBackColor = true;
+            this.btnClearSec.Click += new System.EventHandler(this.btnClearSec_Click);
+            // 
+            // btnCalcSec
+            // 
+            this.btnCalcSec.Location = new System.Drawing.Point(155, 76);
+            this.btnCalcSec.Name = "btnCalcSec";
+            this.btnCalcSec.Size = new System.Drawing.Size(78, 21);
+            this.btnCalcSec.TabIndex = 9;
+            this.btnCalcSec.Text = "Calculate";
+            this.btnCalcSec.UseVisualStyleBackColor = true;
+            this.btnCalcSec.Click += new System.EventHandler(this.btnCalcSec_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Length";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textLength
+            // 
+            this.textLength.Location = new System.Drawing.Point(55, 77);
+            this.textLength.Name = "textLength";
+            this.textLength.Size = new System.Drawing.Size(78, 20);
+            this.textLength.TabIndex = 7;
+            // 
+            // richTextInputSec
+            // 
+            this.richTextInputSec.Location = new System.Drawing.Point(12, 25);
+            this.richTextInputSec.Name = "richTextInputSec";
+            this.richTextInputSec.Size = new System.Drawing.Size(439, 27);
+            this.richTextInputSec.TabIndex = 6;
+            this.richTextInputSec.Text = "";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(155, 101);
+            this.label4.Location = new System.Drawing.Point(13, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(146, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "PANEL FOR SECOND TASK";
+            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Input string";
+            // 
+            // textCount
+            // 
+            this.textCount.Location = new System.Drawing.Point(373, 77);
+            this.textCount.Name = "textCount";
+            this.textCount.ReadOnly = true;
+            this.textCount.Size = new System.Drawing.Size(78, 20);
+            this.textCount.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(332, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Count";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 450);
+            this.ClientSize = new System.Drawing.Size(464, 381);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "BP_LAB_5";
@@ -178,6 +255,13 @@
         private System.Windows.Forms.RichTextBox richTextOutput;
         private System.Windows.Forms.RichTextBox richTextInput;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textCount;
+        private System.Windows.Forms.Button btnClearSec;
+        private System.Windows.Forms.Button btnCalcSec;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textLength;
+        private System.Windows.Forms.RichTextBox richTextInputSec;
         private System.Windows.Forms.Label label4;
     }
 }
