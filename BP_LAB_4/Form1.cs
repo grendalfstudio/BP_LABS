@@ -81,7 +81,7 @@ namespace BP_LAB_4
 
         string filePath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\File.txt";
 
-        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemOpen_Click(object sender, EventArgs e)
         {
             try
             {
@@ -94,27 +94,27 @@ namespace BP_LAB_4
 
         }
 
-        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItemClose_Click(object sender, EventArgs e)
         {
             richTextBoxFileContents.Text = "";
             textBoxSum.Text = "";
-            textBoxMultiplication.Text = "";
+            textBoxProduct.Text = "";
         }
 
         private void ButtonCalculate_Click(object sender, EventArgs e)
         {
             string[] splitText = richTextBoxFileContents.Text.Split('\n');
             double  sum = 0.0,
-                    multiplication = 1.0;
+                    product = 1.0;
             try
             {
                 for (int i = 0; i < splitText.GetLength(0); i++)
                 {
                     sum += Convert.ToDouble(splitText[i]);
-                    multiplication *= Convert.ToDouble(splitText[i]);
+                    product *= Convert.ToDouble(splitText[i]);
                 }
                 textBoxSum.Text = sum.ToString("#0.0####");
-                textBoxMultiplication.Text = multiplication.ToString("#0.0####");
+                textBoxProduct.Text = product.ToString("#0.0####");
             }
             catch (Exception ex)
             {

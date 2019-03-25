@@ -43,9 +43,9 @@
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonCalculate = new System.Windows.Forms.Button();
-            this.labelMultiplication = new System.Windows.Forms.Label();
+            this.labelProduct = new System.Windows.Forms.Label();
             this.labelSum = new System.Windows.Forms.Label();
-            this.textBoxMultiplication = new System.Windows.Forms.TextBox();
+            this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.richTextBoxFileContents = new System.Windows.Forms.RichTextBox();
             this.menuStrip2ndTask = new System.Windows.Forms.MenuStrip();
@@ -188,9 +188,9 @@
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Window;
             this.tabPage2.Controls.Add(this.buttonCalculate);
-            this.tabPage2.Controls.Add(this.labelMultiplication);
+            this.tabPage2.Controls.Add(this.labelProduct);
             this.tabPage2.Controls.Add(this.labelSum);
-            this.tabPage2.Controls.Add(this.textBoxMultiplication);
+            this.tabPage2.Controls.Add(this.textBoxProduct);
             this.tabPage2.Controls.Add(this.textBoxSum);
             this.tabPage2.Controls.Add(this.richTextBoxFileContents);
             this.tabPage2.Controls.Add(this.menuStrip2ndTask);
@@ -212,15 +212,15 @@
             this.buttonCalculate.UseVisualStyleBackColor = true;
             this.buttonCalculate.Click += new System.EventHandler(this.ButtonCalculate_Click);
             // 
-            // labelMultiplication
+            // labelProduct
             // 
-            this.labelMultiplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelMultiplication.Location = new System.Drawing.Point(397, 147);
-            this.labelMultiplication.Name = "labelMultiplication";
-            this.labelMultiplication.Size = new System.Drawing.Size(169, 67);
-            this.labelMultiplication.TabIndex = 12;
-            this.labelMultiplication.Text = "Multiplication of the double elements:";
-            this.labelMultiplication.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelProduct.Location = new System.Drawing.Point(397, 147);
+            this.labelProduct.Name = "labelProduct";
+            this.labelProduct.Size = new System.Drawing.Size(169, 67);
+            this.labelProduct.TabIndex = 12;
+            this.labelProduct.Text = "Product of the double elements:";
+            this.labelProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSum
             // 
@@ -232,15 +232,15 @@
             this.labelSum.Text = "Sum of the double elements:";
             this.labelSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxMultiplication
+            // textBoxProduct
             // 
-            this.textBoxMultiplication.BackColor = System.Drawing.SystemColors.Window;
-            this.textBoxMultiplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxMultiplication.Location = new System.Drawing.Point(572, 165);
-            this.textBoxMultiplication.Name = "textBoxMultiplication";
-            this.textBoxMultiplication.ReadOnly = true;
-            this.textBoxMultiplication.Size = new System.Drawing.Size(215, 29);
-            this.textBoxMultiplication.TabIndex = 10;
+            this.textBoxProduct.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxProduct.Location = new System.Drawing.Point(572, 165);
+            this.textBoxProduct.Name = "textBoxProduct";
+            this.textBoxProduct.ReadOnly = true;
+            this.textBoxProduct.Size = new System.Drawing.Size(215, 29);
+            this.textBoxProduct.TabIndex = 10;
             // 
             // textBoxSum
             // 
@@ -285,16 +285,16 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemClose_Click);
             // 
             // FormFileTask
             // 
@@ -332,9 +332,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textMinEven;
         private System.Windows.Forms.TextBox textMax;
-        private System.Windows.Forms.Label labelMultiplication;
+        private System.Windows.Forms.Label labelProduct;
         private System.Windows.Forms.Label labelSum;
-        private System.Windows.Forms.TextBox textBoxMultiplication;
+        private System.Windows.Forms.TextBox textBoxProduct;
         private System.Windows.Forms.TextBox textBoxSum;
         private System.Windows.Forms.RichTextBox richTextBoxFileContents;
         private System.Windows.Forms.MenuStrip menuStrip2ndTask;
