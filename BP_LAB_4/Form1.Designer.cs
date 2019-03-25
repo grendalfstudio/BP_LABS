@@ -1,6 +1,6 @@
 ﻿namespace BP_LAB_4
 {
-    partial class FormFile
+    partial class FormFileTask
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFile));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFileTask));
+            this.tabControlContents = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,32 +42,32 @@
             this.btnCalc = new System.Windows.Forms.ToolStripButton();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelMultiplication = new System.Windows.Forms.Label();
+            this.buttonCalculate = new System.Windows.Forms.Button();
+            this.labelProduct = new System.Windows.Forms.Label();
             this.labelSum = new System.Windows.Forms.Label();
-            this.textBoxMultiplication = new System.Windows.Forms.TextBox();
+            this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.richTextBoxFileContents = new System.Windows.Forms.RichTextBox();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1.SuspendLayout();
+            this.menuStrip2ndTask = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControlContents.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
+            this.menuStrip2ndTask.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlContents
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-2, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(801, 455);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlContents.Controls.Add(this.tabPage1);
+            this.tabControlContents.Controls.Add(this.tabPage2);
+            this.tabControlContents.Location = new System.Drawing.Point(-2, 0);
+            this.tabControlContents.Name = "tabControlContents";
+            this.tabControlContents.SelectedIndex = 0;
+            this.tabControlContents.Size = new System.Drawing.Size(801, 409);
+            this.tabControlContents.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -80,7 +80,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(793, 429);
+            this.tabPage1.Size = new System.Drawing.Size(793, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "First task";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -107,6 +107,7 @@
             // 
             // textMinEven
             // 
+            this.textMinEven.BackColor = System.Drawing.SystemColors.Window;
             this.textMinEven.Location = new System.Drawing.Point(561, 148);
             this.textMinEven.Name = "textMinEven";
             this.textMinEven.ReadOnly = true;
@@ -115,6 +116,7 @@
             // 
             // textMax
             // 
+            this.textMax.BackColor = System.Drawing.SystemColors.Window;
             this.textMax.Location = new System.Drawing.Point(561, 67);
             this.textMax.Name = "textMax";
             this.textMax.ReadOnly = true;
@@ -125,7 +127,7 @@
             // 
             this.richTextViewFile.Location = new System.Drawing.Point(10, 31);
             this.richTextViewFile.Name = "richTextViewFile";
-            this.richTextViewFile.Size = new System.Drawing.Size(541, 385);
+            this.richTextViewFile.Size = new System.Drawing.Size(541, 343);
             this.richTextViewFile.TabIndex = 3;
             this.richTextViewFile.Text = "";
             // 
@@ -184,137 +186,140 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.labelMultiplication);
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Window;
+            this.tabPage2.Controls.Add(this.buttonCalculate);
+            this.tabPage2.Controls.Add(this.labelProduct);
             this.tabPage2.Controls.Add(this.labelSum);
-            this.tabPage2.Controls.Add(this.textBoxMultiplication);
+            this.tabPage2.Controls.Add(this.textBoxProduct);
             this.tabPage2.Controls.Add(this.textBoxSum);
             this.tabPage2.Controls.Add(this.richTextBoxFileContents);
-            this.tabPage2.Controls.Add(this.toolStrip2);
+            this.tabPage2.Controls.Add(this.menuStrip2ndTask);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(793, 429);
+            this.tabPage2.Size = new System.Drawing.Size(793, 383);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Second task";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // labelMultiplication
+            // buttonCalculate
             // 
-            this.labelMultiplication.AutoSize = true;
-            this.labelMultiplication.Location = new System.Drawing.Point(556, 132);
-            this.labelMultiplication.Name = "labelMultiplication";
-            this.labelMultiplication.Size = new System.Drawing.Size(181, 13);
-            this.labelMultiplication.TabIndex = 12;
-            this.labelMultiplication.Text = "Multiplication of the double elements:";
-            this.labelMultiplication.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.buttonCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCalculate.Location = new System.Drawing.Point(510, 293);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(250, 50);
+            this.buttonCalculate.TabIndex = 14;
+            this.buttonCalculate.Text = "Calculate!";
+            this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.ButtonCalculate_Click);
+            // 
+            // labelProduct
+            // 
+            this.labelProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelProduct.Location = new System.Drawing.Point(397, 147);
+            this.labelProduct.Name = "labelProduct";
+            this.labelProduct.Size = new System.Drawing.Size(169, 67);
+            this.labelProduct.TabIndex = 12;
+            this.labelProduct.Text = "Product of the double elements:";
+            this.labelProduct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSum
             // 
-            this.labelSum.AutoSize = true;
-            this.labelSum.Location = new System.Drawing.Point(557, 51);
+            this.labelSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSum.Location = new System.Drawing.Point(397, 27);
             this.labelSum.Name = "labelSum";
-            this.labelSum.Size = new System.Drawing.Size(141, 13);
+            this.labelSum.Size = new System.Drawing.Size(169, 67);
             this.labelSum.TabIndex = 11;
             this.labelSum.Text = "Sum of the double elements:";
-            this.labelSum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxMultiplication
+            // textBoxProduct
             // 
-            this.textBoxMultiplication.Location = new System.Drawing.Point(560, 148);
-            this.textBoxMultiplication.Name = "textBoxMultiplication";
-            this.textBoxMultiplication.ReadOnly = true;
-            this.textBoxMultiplication.Size = new System.Drawing.Size(100, 20);
-            this.textBoxMultiplication.TabIndex = 10;
+            this.textBoxProduct.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxProduct.Location = new System.Drawing.Point(572, 165);
+            this.textBoxProduct.Name = "textBoxProduct";
+            this.textBoxProduct.ReadOnly = true;
+            this.textBoxProduct.Size = new System.Drawing.Size(215, 29);
+            this.textBoxProduct.TabIndex = 10;
             // 
             // textBoxSum
             // 
-            this.textBoxSum.Location = new System.Drawing.Point(560, 67);
+            this.textBoxSum.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxSum.Location = new System.Drawing.Point(572, 45);
             this.textBoxSum.Name = "textBoxSum";
             this.textBoxSum.ReadOnly = true;
-            this.textBoxSum.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSum.Size = new System.Drawing.Size(215, 29);
             this.textBoxSum.TabIndex = 9;
             // 
             // richTextBoxFileContents
             // 
-            this.richTextBoxFileContents.Location = new System.Drawing.Point(9, 31);
+            this.richTextBoxFileContents.BackColor = System.Drawing.SystemColors.Window;
+            this.richTextBoxFileContents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxFileContents.Location = new System.Drawing.Point(6, 30);
             this.richTextBoxFileContents.Name = "richTextBoxFileContents";
-            this.richTextBoxFileContents.Size = new System.Drawing.Size(541, 385);
+            this.richTextBoxFileContents.ReadOnly = true;
+            this.richTextBoxFileContents.Size = new System.Drawing.Size(385, 347);
             this.richTextBoxFileContents.TabIndex = 8;
             this.richTextBoxFileContents.Text = "";
             // 
-            // toolStrip2
+            // menuStrip2ndTask
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(787, 25);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
+            this.menuStrip2ndTask.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip2ndTask.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip2ndTask.Name = "menuStrip2ndTask";
+            this.menuStrip2ndTask.Size = new System.Drawing.Size(787, 24);
+            this.menuStrip2ndTask.TabIndex = 13;
+            this.menuStrip2ndTask.Text = "menuStrip1";
             // 
-            // toolStripButton1
+            // fileToolStripMenuItem
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(59, 22);
-            this.toolStripButton1.Text = "Open file";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.closeToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // toolStripButton2
+            // openToolStripMenuItem
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(59, 22);
-            this.toolStripButton2.Text = "Close file";
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemOpen_Click);
             // 
-            // toolStripButton3
+            // closeToolStripMenuItem
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButton3.Text = "Calculate";
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItemClose_Click);
             // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(29, 22);
-            this.toolStripButton4.Text = "Exit";
-            // 
-            // FormFile
+            // FormFileTask
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 408);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "FormFile";
+            this.Controls.Add(this.tabControlContents);
+            this.Name = "FormFileTask";
             this.Text = "BP_LAB_4";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlContents.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            this.menuStrip2ndTask.ResumeLayout(false);
+            this.menuStrip2ndTask.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlContents;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox richTextViewFile;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -327,16 +332,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textMinEven;
         private System.Windows.Forms.TextBox textMax;
-        private System.Windows.Forms.Label labelMultiplication;
+        private System.Windows.Forms.Label labelProduct;
         private System.Windows.Forms.Label labelSum;
-        private System.Windows.Forms.TextBox textBoxMultiplication;
+        private System.Windows.Forms.TextBox textBoxProduct;
         private System.Windows.Forms.TextBox textBoxSum;
         private System.Windows.Forms.RichTextBox richTextBoxFileContents;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.MenuStrip menuStrip2ndTask;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Button buttonCalculate;
     }
 }
 
