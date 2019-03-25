@@ -94,9 +94,7 @@ namespace BP_LAB_3_1
                 textBoxCapacity.Text = "";
                 return;
             }
-
             
-
             textBoxType.Text = "";
             textBoxPlace.Text = "";
             textBoxWeight.Text = "";

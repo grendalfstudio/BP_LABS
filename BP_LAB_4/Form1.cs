@@ -11,13 +11,17 @@ using System.IO;
 
 namespace BP_LAB_4
 {
-    public partial class Form1 : Form
+    public partial class FormFile : Form
     {
+        public FormFile() => InitializeComponent();
+
+        //
+        // First task
+        //
 
         static string path = "C:\\Users\\MykolaV\\source\\repos\\C#\\BP_LABS\\BP_LAB_4\\f.txt";
         static IEnumerable<double> numbers;
 
-        public Form1() => InitializeComponent();
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
@@ -70,5 +74,12 @@ namespace BP_LAB_4
             textMax.Text = "";
             textMinEven.Text ="";
         }
+
+        //
+        // Second task
+        //
+
+        static string filePath = "F:\\Андрій\\Git Repositories\\BP_LAB_4\\File.txt";
+        
     }
 }
