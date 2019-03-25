@@ -19,7 +19,7 @@ namespace BP_LAB_4
         // First task
         //
 
-        static string path = "C:\\Users\\MykolaV\\source\\repos\\C#\\BP_LABS\\BP_LAB_4\\f.txt";
+        static string path = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\f.txt";
         static IEnumerable<double> numbers;
 
 
