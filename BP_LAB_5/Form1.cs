@@ -28,11 +28,11 @@ namespace BP_LAB_5
                 }
                 else
                 {
-                    int length = strArray[N - 1].Count();
+                    int length = strArray[N - 1].Length;
                     string output = "";
                     foreach (string str in strArray)
                     {
-                        if (str.Count() == length)
+                        if (str.Length == length)
                         {
                             output += str + " ";
                         }
@@ -65,7 +65,7 @@ namespace BP_LAB_5
                 short count = 0;
                 foreach (string str in strArraySec)
                 {
-                    if (str.Count() == length)
+                    if (str.Length == length)
                         count++;
                 }
 
