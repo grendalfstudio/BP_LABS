@@ -11,9 +11,9 @@ using System.IO;
 
 namespace BP_LAB_4
 {
-    public partial class FormFile : Form
+    public partial class FormFileTask : Form
     {
-        public FormFile() => InitializeComponent();
+        public FormFileTask() => InitializeComponent();
 
         //
         // First task
@@ -56,7 +56,7 @@ namespace BP_LAB_4
                 textMax.Text = Convert.ToString(max);
                 textMinEven.Text = Convert.ToString(minEven);
             } 
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("File not opened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -79,7 +79,48 @@ namespace BP_LAB_4
         // Second task
         //
 
-        static string filePath = "F:\\Андрій\\Git Repositories\\BP_LAB_4\\File.txt";
-        
+        string filePath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "\\File.txt";
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                richTextBoxFileContents.Text = File.ReadAllText(filePath, Encoding.UTF8);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBoxFileContents.Text = "";
+            textBoxSum.Text = "";
+            textBoxMultiplication.Text = "";
+        }
+
+        private void ButtonCalculate_Click(object sender, EventArgs e)
+        {
+            string[] splitText = richTextBoxFileContents.Text.Split('\n');
+            double  sum = 0.0,
+                    multiplication = 1.0;
+            try
+            {
+                for (int i = 0; i < splitText.GetLength(0); i++)
+                {
+                    sum += Convert.ToDouble(splitText[i]);
+                    multiplication *= Convert.ToDouble(splitText[i]);
+                }
+                textBoxSum.Text = sum.ToString("#0.0####");
+                textBoxMultiplication.Text = multiplication.ToString("#0.0####");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show( (richTextBoxFileContents.Text != "" ? "There is an error in file!" : " The file is empty"),
+                                  "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
