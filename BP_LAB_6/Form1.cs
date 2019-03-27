@@ -18,6 +18,160 @@ namespace BP_LAB_6
      * сортування за одним з текстових полів структури за алфавітом, 
      * пошук з форми.*/
 
+   
+
+    public partial class Form1 : Form
+    {
+        List<Item> items;
+        List<int> ids;
+        int size;
+        string type;
+        string name;
+        int place;
+        float weight;
+        int id;
+        int index;
+        int indexR;
+        int idR;
+        string sortChoice;
+
+        public Form1() => InitializeComponent();
+
+        private void BtnSetSize_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                size = Convert.ToInt32(textSize.Text);
+                items = new List<Item>(size);
+                ids = new List<int>(size);
+
+                MessageBox.Show("List with capacity "+ size + " created", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                type = textType.Text;
+                name = textName.Text;
+                place = Convert.ToInt32(textPlace.Text);
+                weight = (float)Convert.ToDouble(textWeight.Text);
+                id = Convert.ToInt32(textId.Text);
+                if (items.Count() < size){    
+                    Item item = new Item(type, name, place, weight, id);
+                    items.Add(item);
+                }
+                else
+                {
+                    throw new Exception("List is already full");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnInsert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                type = textType.Text;
+                name = textName.Text;
+                place = Convert.ToInt32(textPlace.Text);
+                weight = (float)Convert.ToDouble(textWeight.Text);
+                id = Convert.ToInt32(textId.Text);
+                index = Convert.ToInt32(textIndex.Text);
+
+                if (items.Count() < size){    
+                    Item item = new Item(type, name, place, weight, id);
+                    items.Insert(index, item);
+                }
+                else
+                {
+                    throw new Exception("List is already full");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnRemoveByIndex_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                indexR = Convert.ToInt32(textIndexR.Text);
+                items.RemoveAt(indexR);
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+        private void BtnRemoveById_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                idR = Convert.ToInt32(textIdR.Text);
+                Item item = items.Find(x => x.Id == idR);
+                if (!item.Equals(null))
+                {
+                    items.Remove(item);
+                }
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sortChoice = boxSortChoice.Text;
+                if (sortChoice.Equals("Type"))
+                {
+                    TypeComparer typeComparer = new TypeComparer();
+                    items.Sort(typeComparer);
+                }
+                else
+                {
+                    NameComparer nameComparer = new NameComparer();
+                    items.Sort(nameComparer);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IEnumerable<Item> result;
+                string nameSearch = textSearch.Text;
+
+                result = from x in items where x.Name.Contains(nameSearch) select x;
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
     public struct Item
     {
         private string type;
@@ -150,143 +304,6 @@ namespace BP_LAB_6
                         return x.Name.CompareTo(y.Name);
                     }
                 }
-            }
-        }
-    }
-
-    public partial class Form1 : Form
-    {
-        List<Item> items;
-        List<int> ids;
-        int size;
-        string type;
-        string name;
-        int place;
-        float weight;
-        int id;
-        int index;
-        int indexR;
-        int idR;
-        string sortChoice;
-
-        public Form1() => InitializeComponent();
-
-        private void btnSetSize_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                size = Convert.ToInt32(textSize.Text);
-                items = new List<Item>(size);
-                ids = new List<int>(size);
-
-                MessageBox.Show("List with capacity "+ size + " created", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                type = textType.Text;
-                name = textName.Text;
-                place = Convert.ToInt32(textPlace.Text);
-                weight = (float)Convert.ToDouble(textWeight.Text);
-                id = Convert.ToInt32(textId.Text);
-                if (items.Count() < size){    
-                    Item item = new Item(type, name, place, weight, id);
-                    items.Add(item);
-                }
-                else
-                {
-                    throw new Exception("List is already full");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                type = textType.Text;
-                name = textName.Text;
-                place = Convert.ToInt32(textPlace.Text);
-                weight = (float)Convert.ToDouble(textWeight.Text);
-                id = Convert.ToInt32(textId.Text);
-                index = Convert.ToInt32(textIndex.Text);
-
-                if (items.Count() < size){    
-                    Item item = new Item(type, name, place, weight, id);
-                    items.Insert(index, item);
-                }
-                else
-                {
-                    throw new Exception("List is already full");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnRemoveByIndex_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                indexR = Convert.ToInt32(textIndexR.Text);
-                items.RemoveAt(indexR);
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-        }
-
-        private void btnRemoveById_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                idR = Convert.ToInt32(textIdR.Text);
-                Item item = items.Find(x => x.Id == idR);
-                if (!item.Equals(null))
-                {
-                    items.Remove(item);
-                }
-            } 
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnSort_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                sortChoice = boxSortChoice.Text;
-                if (sortChoice.Equals("Type"))
-                {
-                    TypeComparer typeComparer = new TypeComparer();
-                    items.Sort(typeComparer);
-                }
-                else
-                {
-                    NameComparer nameComparer = new NameComparer();
-                    items.Sort(nameComparer);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

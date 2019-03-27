@@ -53,6 +53,9 @@
             this.btnRemoveById = new System.Windows.Forms.Button();
             this.boxSortChoice = new System.Windows.Forms.ComboBox();
             this.btnSort = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textSearch = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textSize
@@ -159,7 +162,7 @@
             this.btnSetSize.TabIndex = 8;
             this.btnSetSize.Text = "Create";
             this.btnSetSize.UseVisualStyleBackColor = true;
-            this.btnSetSize.Click += new System.EventHandler(this.btnSetSize_Click);
+            this.btnSetSize.Click += new System.EventHandler(this.BtnSetSize_Click);
             // 
             // btnInsert
             // 
@@ -169,7 +172,7 @@
             this.btnInsert.TabIndex = 10;
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
+            this.btnInsert.Click += new System.EventHandler(this.BtnInsert_Click);
             // 
             // btnRemoveByIndex
             // 
@@ -179,7 +182,7 @@
             this.btnRemoveByIndex.TabIndex = 11;
             this.btnRemoveByIndex.Text = "Remove by index";
             this.btnRemoveByIndex.UseVisualStyleBackColor = true;
-            this.btnRemoveByIndex.Click += new System.EventHandler(this.btnRemoveByIndex_Click);
+            this.btnRemoveByIndex.Click += new System.EventHandler(this.BtnRemoveByIndex_Click);
             // 
             // btnAdd
             // 
@@ -189,7 +192,7 @@
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // textIndex
             // 
@@ -267,13 +270,42 @@
             this.btnSort.TabIndex = 15;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            this.btnSort.Click += new System.EventHandler(this.BtnSort_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(383, 126);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(100, 23);
+            this.btnSearch.TabIndex = 18;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(489, 103);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Name";
+            // 
+            // textSearch
+            // 
+            this.textSearch.Location = new System.Drawing.Point(383, 100);
+            this.textSearch.Name = "textSearch";
+            this.textSearch.Size = new System.Drawing.Size(100, 20);
+            this.textSearch.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.textSearch);
             this.Controls.Add(this.btnSort);
             this.Controls.Add(this.boxSortChoice);
             this.Controls.Add(this.btnRemoveById);
@@ -333,6 +365,9 @@
         private System.Windows.Forms.Button btnRemoveById;
         private System.Windows.Forms.ComboBox boxSortChoice;
         private System.Windows.Forms.Button btnSort;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textSearch;
     }
 }
 
