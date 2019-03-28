@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.richTextInput = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textN = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.richTextOutput = new System.Windows.Forms.RichTextBox();
-            this.btnCalc = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnCalc = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textN = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextOutput = new System.Windows.Forms.RichTextBox();
+            this.richTextInput = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textCount = new System.Windows.Forms.TextBox();
             this.btnClearSec = new System.Windows.Forms.Button();
             this.btnCalcSec = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textLength = new System.Windows.Forms.TextBox();
             this.richTextInputSec = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textCount = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -83,56 +83,15 @@
             this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.TabIndex = 0;
             // 
-            // richTextInput
+            // btnClear
             // 
-            this.richTextInput.Location = new System.Drawing.Point(12, 37);
-            this.richTextInput.Name = "richTextInput";
-            this.richTextInput.Size = new System.Drawing.Size(439, 27);
-            this.richTextInput.TabIndex = 0;
-            this.richTextInput.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Input string";
-            // 
-            // textN
-            // 
-            this.textN.Location = new System.Drawing.Point(34, 121);
-            this.textN.Name = "textN";
-            this.textN.Size = new System.Drawing.Size(78, 20);
-            this.textN.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "N";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Output string";
-            // 
-            // richTextOutput
-            // 
-            this.richTextOutput.Location = new System.Drawing.Point(12, 86);
-            this.richTextOutput.Name = "richTextOutput";
-            this.richTextOutput.ReadOnly = true;
-            this.richTextOutput.Size = new System.Drawing.Size(439, 27);
-            this.richTextOutput.TabIndex = 0;
-            this.richTextOutput.Text = "";
+            this.btnClear.Location = new System.Drawing.Point(226, 121);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 20);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnCalc
             // 
@@ -144,15 +103,74 @@
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
-            // btnClear
+            // label2
             // 
-            this.btnClear.Location = new System.Drawing.Point(226, 121);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 20);
-            this.btnClear.TabIndex = 5;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 124);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(15, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "N";
+            // 
+            // textN
+            // 
+            this.textN.Location = new System.Drawing.Point(34, 121);
+            this.textN.Name = "textN";
+            this.textN.Size = new System.Drawing.Size(78, 20);
+            this.textN.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Output string";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Input string";
+            // 
+            // richTextOutput
+            // 
+            this.richTextOutput.Location = new System.Drawing.Point(12, 86);
+            this.richTextOutput.Name = "richTextOutput";
+            this.richTextOutput.ReadOnly = true;
+            this.richTextOutput.Size = new System.Drawing.Size(439, 27);
+            this.richTextOutput.TabIndex = 0;
+            this.richTextOutput.Text = "";
+            // 
+            // richTextInput
+            // 
+            this.richTextInput.Location = new System.Drawing.Point(12, 37);
+            this.richTextInput.Name = "richTextInput";
+            this.richTextInput.Size = new System.Drawing.Size(439, 27);
+            this.richTextInput.TabIndex = 0;
+            this.richTextInput.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(332, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Count";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textCount
+            // 
+            this.textCount.Location = new System.Drawing.Point(373, 77);
+            this.textCount.Name = "textCount";
+            this.textCount.ReadOnly = true;
+            this.textCount.Size = new System.Drawing.Size(78, 20);
+            this.textCount.TabIndex = 11;
             // 
             // btnClearSec
             // 
@@ -207,24 +225,6 @@
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Input string";
-            // 
-            // textCount
-            // 
-            this.textCount.Location = new System.Drawing.Point(373, 77);
-            this.textCount.Name = "textCount";
-            this.textCount.ReadOnly = true;
-            this.textCount.Size = new System.Drawing.Size(78, 20);
-            this.textCount.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(332, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Count";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Form1
             // 
