@@ -205,6 +205,7 @@
             this.comboBoxChooseFirmToAdd.Name = "comboBoxChooseFirmToAdd";
             this.comboBoxChooseFirmToAdd.Size = new System.Drawing.Size(150, 21);
             this.comboBoxChooseFirmToAdd.TabIndex = 11;
+            this.comboBoxChooseFirmToAdd.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseFirmToAdd_SelectedIndexChanged);
             // 
             // groupBox5
             // 
@@ -304,7 +305,7 @@
             this.groupBoxGiveAccessToOffice.Size = new System.Drawing.Size(333, 75);
             this.groupBoxGiveAccessToOffice.TabIndex = 15;
             this.groupBoxGiveAccessToOffice.TabStop = false;
-            this.groupBoxGiveAccessToOffice.Text = "Give access to office";
+            this.groupBoxGiveAccessToOffice.Text = "Give access to the office";
             // 
             // comboBoxChooseOfficeToAdd
             // 
@@ -334,6 +335,7 @@
             this.buttonGiveAccessToOffice.TabIndex = 9;
             this.buttonGiveAccessToOffice.Text = "Add";
             this.buttonGiveAccessToOffice.UseVisualStyleBackColor = true;
+            this.buttonGiveAccessToOffice.Click += new System.EventHandler(this.ButtonGiveAccessToOffice_Click);
             // 
             // comboBoxChooseEmployeeToAdd
             // 
@@ -371,6 +373,7 @@
             // 
             // textBoxEmployeeSurname
             // 
+            this.textBoxEmployeeSurname.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmployeeSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxEmployeeSurname.Location = new System.Drawing.Point(121, 45);
             this.textBoxEmployeeSurname.Name = "textBoxEmployeeSurname";
@@ -396,9 +399,11 @@
             this.buttonAddEmployee.TabIndex = 9;
             this.buttonAddEmployee.Text = "Add";
             this.buttonAddEmployee.UseVisualStyleBackColor = true;
+            this.buttonAddEmployee.Click += new System.EventHandler(this.ButtonAddEmployee_Click);
             // 
             // textBoxEmployeeName
             // 
+            this.textBoxEmployeeName.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxEmployeeName.Location = new System.Drawing.Point(121, 19);
             this.textBoxEmployeeName.Name = "textBoxEmployeeName";
@@ -441,6 +446,7 @@
             // 
             // textBoxOfficeNumber
             // 
+            this.textBoxOfficeNumber.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxOfficeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxOfficeNumber.Location = new System.Drawing.Point(121, 22);
             this.textBoxOfficeNumber.Name = "textBoxOfficeNumber";
@@ -557,6 +563,7 @@
             // 
             // textBoxFirmName
             // 
+            this.textBoxFirmName.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxFirmName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxFirmName.Location = new System.Drawing.Point(121, 22);
             this.textBoxFirmName.Name = "textBoxFirmName";

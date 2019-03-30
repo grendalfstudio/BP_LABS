@@ -14,6 +14,7 @@ namespace BP_LAB_7
     {
         List<City> cities = new List<City>(100);
         List<Firm> firms = new List<Firm>(100);
+        Firm choosedFirm;  // Firm which is choosed in combo box
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace BP_LAB_7
         {
             if (textBoxFirmName.Text == "")
             {
-                MessageBox.Show("The firm name is empty");
+                MessageBox.Show("Firm name is empty");
                 return;
             }
 
@@ -32,13 +33,13 @@ namespace BP_LAB_7
             {
                 firms.Add(firm);
                 comboBoxChooseFirmToAdd.DataSource = firms.Select(x => x.Name).ToList();
-                textBoxFirmName.Text = "";
+                MessageBox.Show("Added");
             }
             else
             {
                 MessageBox.Show("The firm is already exists");
-                textBoxFirmName.Text = "";
             }
+            textBoxFirmName.Text = "";
         }
 
         private void ButtonAddOffice_Click(object sender, EventArgs e)
@@ -50,26 +51,76 @@ namespace BP_LAB_7
             }
             catch (Exception)
             {
-                MessageBox.Show("The office number must be a positive integer");
+                MessageBox.Show("Office number must be a positive integer");
                 textBoxOfficeNumber.Text = "";
                 return;
             }
 
             Office office = new Office(number);
-            // If office doesn't exist in list Offices that are rented by firm which is choosed in comboBoxChooseFirmToAdd
-            List<Office> offices = firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text).Offices;
-            if (offices.Exists(y => y.Number == office.Number) == false)
+            // Get the firm which is choosed in comboBoxChooseFirmToAdd
+            if (choosedFirm.Offices.Exists(y => y.Number == office.Number) == false)
             {
-                // then it is added to that list of offices
-                firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text).Offices.Add(office);
-                comboBoxChooseOfficeToAdd.DataSource = // list of that offices
-                    firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text).Offices.Select(x => x.Number.ToString()).ToList();
-                textBoxOfficeNumber.Text = "";
+                choosedFirm.Offices.Add(office);
+                comboBoxChooseOfficeToAdd.DataSource = choosedFirm.Offices.Select(x => x.Number.ToString()).ToList();
+                MessageBox.Show("Added");
             }
             else
             {
                 MessageBox.Show("The office is already exists");
-                textBoxOfficeNumber.Text = "";
+            }
+            textBoxOfficeNumber.Text = "";
+        }
+
+        private void ButtonAddEmployee_Click(object sender, EventArgs e)
+        {
+            if (textBoxEmployeeName.Text == "" || textBoxEmployeeSurname.Text == "")
+            {
+                MessageBox.Show("Employee's name or surname is empty");
+                textBoxEmployeeName.Text = "";
+                textBoxEmployeeSurname.Text = "";
+                return;
+            }
+            string  EmployeeName = textBoxEmployeeName.Text,
+                    EmployeeSurname = textBoxEmployeeSurname.Text;
+            // Get the firm which is choosed in comboBoxChooseFirmToAdd
+            if (choosedFirm.Employees.Exists(y => (y.Name == EmployeeName) && (y.Surname == EmployeeSurname) ) == false)
+            {
+                Employee employee = new Employee(EmployeeName, EmployeeSurname, choosedFirm);
+                choosedFirm.Employees.Add(employee);
+                comboBoxChooseEmployeeToAdd.DataSource = choosedFirm.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                MessageBox.Show("Added");
+            }
+            else
+            {
+                MessageBox.Show("The employee is already in this firm");
+            }
+            textBoxEmployeeName.Text = "";
+            textBoxEmployeeSurname.Text = "";
+        }
+
+        private void ComboBoxChooseFirmToAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            choosedFirm = firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text);
+            comboBoxChooseOfficeToAdd.DataSource = choosedFirm.Offices.Select(x => x.Number.ToString()).ToList();
+            comboBoxChooseOfficeToAdd.Refresh();
+            comboBoxChooseEmployeeToAdd.DataSource = choosedFirm.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            comboBoxChooseEmployeeToAdd.Refresh();
+        }
+
+        private void ButtonGiveAccessToOffice_Click(object sender, EventArgs e)
+        {
+            string  employeeString = comboBoxChooseEmployeeToAdd.Text,
+                    officeString = comboBoxChooseOfficeToAdd.Text;
+            Employee employee = choosedFirm.Employees.Find(x => x.Name + " " + x.Surname == employeeString);
+            Office office = choosedFirm.Offices.Find(x => x.Number.ToString() == officeString);
+            if (employee.Offices.Exists(x => x.Number == office.Number) == false)
+            {
+                employee.Offices.Add(office);
+                MessageBox.Show("Added");
+            }
+            else
+            {
+                MessageBox.Show("The employee has an access to this office already");
             }
         }
     }
