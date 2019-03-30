@@ -7,14 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BP_LAB_7.Variant1;
+using BP_LAB_7.Variant3;
 
 namespace BP_LAB_7
 {
     public partial class Form1 : Form
     {
+        List<City> Cities = new List<City>(100);
+        List<Firm> Firms = new List<Firm>(100);
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void ButtonAddFirm_Click(object sender, EventArgs e)
+        {
+            Firm firm = new Firm(textBoxFirmName.Text);
+            Firms.Add(firm);
+            textBoxFirmName.Text = "";
         }
     }
 
@@ -47,6 +58,7 @@ namespace BP_LAB_7
                 Street = street;
                 Coordinates = coordinates;
             }
+        }
     }
     
     namespace Variant3
@@ -80,11 +92,11 @@ namespace BP_LAB_7
         }
         public class Office
         {
-            public string Name { get; }
+            public int Number { get; }
             public List<Employee> Employees { get; }
-            public Office(string name)
+            public Office(int number)
             {
-                Name = name;
+                Number = number;
             }
         }
     }
