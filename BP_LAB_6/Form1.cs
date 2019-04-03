@@ -11,19 +11,13 @@ using System.Windows.Forms;
 
 namespace BP_LAB_6
 {
-    /*Використати структуру з лабораторної роботи №4. 
-     * Створити список структур (розмір задається користувачем), 
-     * реалізувати його заповнення з форми, реалізувати додавання, 
-     * видалення (за значенням та індексом), вставку, 
-     * сортування за одним з текстових полів структури за алфавітом, 
-     * пошук з форми.*/
-
-   
+      
 
     public partial class Form1 : Form
     {
         List<Item> items;
         List<int> ids;
+        IEnumerable<Item> result;
         int size;
         string type;
         string name;
@@ -44,8 +38,10 @@ namespace BP_LAB_6
                 size = Convert.ToInt32(textSize.Text);
                 items = new List<Item>(size);
                 ids = new List<int>(size);
-
+                numericView.Maximum = size-1;
                 MessageBox.Show("List with capacity "+ size + " created", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                EnableAll();
             }
             catch (Exception ex)
             {
@@ -62,14 +58,29 @@ namespace BP_LAB_6
                 place = Convert.ToInt32(textPlace.Text);
                 weight = (float)Convert.ToDouble(textWeight.Text);
                 id = Convert.ToInt32(textId.Text);
-                if (items.Count() < size){    
+
+                if (items.Count() < size && !ids.Contains(id)){    
                     Item item = new Item(type, name, place, weight, id);
                     items.Add(item);
+                    MessageBox.Show("Succesfully added", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    throw new Exception("List is already full");
+                    throw new Exception("List is already full or item with this ID already in list");
                 }
+                
+
+                textType.Text = "";
+                textName.Text = "";
+                textPlace.Text = "";
+                textWeight.Text = "";
+                textId.Text = "";
+
+                textTypeShow.Text = items.ElementAt(0).Type;
+                textNameShow.Text = items.ElementAt(0).Name;
+                textPlaceShow.Text = Convert.ToString(items.ElementAt(0).Place);
+                textWeightShow.Text = Convert.ToString(items.ElementAt(0).Weight);
+                textIdShow.Text = Convert.ToString(items.ElementAt(0).Id); 
             }
             catch (Exception ex)
             {
@@ -88,14 +99,25 @@ namespace BP_LAB_6
                 id = Convert.ToInt32(textId.Text);
                 index = Convert.ToInt32(textIndex.Text);
 
-                if (items.Count() < size){    
+                if (items.Count() < size && !ids.Exists(x => x == id)){    
                     Item item = new Item(type, name, place, weight, id);
                     items.Insert(index, item);
                 }
                 else
                 {
-                    throw new Exception("List is already full");
+                    throw new Exception("List is already full or item with this ID already in list");
                 }
+
+                MessageBox.Show("Succesfully inserted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                textType.Text = "";
+                textName.Text = "";
+                textPlace.Text = "";
+                textWeight.Text = "";
+                textId.Text = "";
+                textIndex.Text = "";
+
+                ClearShow();
             }
             catch (Exception ex)
             {
@@ -109,6 +131,12 @@ namespace BP_LAB_6
             {
                 indexR = Convert.ToInt32(textIndexR.Text);
                 items.RemoveAt(indexR);
+
+                MessageBox.Show("Succesfully removed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                textIndexR.Text = "";
+
+                ClearShow();
             } 
             catch (Exception ex)
             {
@@ -122,11 +150,14 @@ namespace BP_LAB_6
             try
             {
                 idR = Convert.ToInt32(textIdR.Text);
-                Item item = items.Find(x => x.Id == idR);
-                if (!item.Equals(null))
-                {
-                    items.Remove(item);
+                if (ids.Contains(idR))
+                {               
+                    items.RemoveAt(items.FindIndex(x => x.Id == idR));
+                    MessageBox.Show("Succesfully removed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    textIdR.Text = "";
                 }
+
+                ClearShow();
             } 
             catch (Exception ex)
             {
@@ -143,12 +174,17 @@ namespace BP_LAB_6
                 {
                     TypeComparer typeComparer = new TypeComparer();
                     items.Sort(typeComparer);
+                    MessageBox.Show("Sorted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearShow();
                 }
                 else
                 {
                     NameComparer nameComparer = new NameComparer();
                     items.Sort(nameComparer);
+                    MessageBox.Show("Sorted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearShow();
                 }
+                MessageBox.Show("Sorted", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -160,11 +196,100 @@ namespace BP_LAB_6
         {
             try
             {
-                IEnumerable<Item> result;
+
                 string nameSearch = textSearch.Text;
 
                 result = from x in items where x.Name.Contains(nameSearch) select x;
+                if (result.Count() > 0)
+                {
+                    numericSearchResult.Maximum = result.Count()-1;
+
+                    ClearShow();
+
+                    textTypeShow.Text = result.ElementAt(0).Type;
+                    textNameShow.Text = result.ElementAt(0).Name;
+                    textPlaceShow.Text = Convert.ToString(result.ElementAt(0).Place);
+                    textWeightShow.Text = Convert.ToString(result.ElementAt(0).Weight);
+                    textIdShow.Text = Convert.ToString(result.ElementAt(0).Id);                                  
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException("Item not found");
+                }
+                
+
             } 
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void NumericSearchResult_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                textTypeShow.Text = result.ElementAt((int)numericSearchResult.Value).Type;
+                textNameShow.Text = result.ElementAt((int)numericSearchResult.Value).Name;
+                textPlaceShow.Text = Convert.ToString(result.ElementAt((int)numericSearchResult.Value).Place);
+                textWeightShow.Text = Convert.ToString(result.ElementAt((int)numericSearchResult.Value).Weight);
+                textIdShow.Text = Convert.ToString(result.ElementAt((int)numericSearchResult.Value).Id);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
+        }
+
+        private void EnableAll()
+        {
+            textId.Enabled = true;
+            textType.Enabled = true;
+            textName.Enabled = true;
+            textWeight.Enabled = true;
+            textPlace.Enabled = true;
+            textIndex.Enabled = true;
+            textIndexR.Enabled = true;
+            textIdR.Enabled = true;
+            textSearch.Enabled = true;
+            textTypeShow.Enabled = true;
+            textNameShow.Enabled = true;
+            textPlaceShow.Enabled = true;
+            textWeightShow.Enabled = true;
+            textIdShow.Enabled = true;
+
+            numericSearchResult.Enabled = true;
+            numericView.Enabled = true;
+            boxSortChoice.Enabled = true;
+
+            btnAdd.Enabled = true;
+            btnRemoveById.Enabled = true;
+            btnRemoveByIndex.Enabled = true;
+            btnSearch.Enabled = true;
+            btnInsert.Enabled = true;
+            btnSort.Enabled = true;
+        }
+
+        private void ClearShow()
+        {
+            textTypeShow.Text = "";
+            textNameShow.Text = "";
+            textPlaceShow.Text = "";
+            textWeightShow.Text = "";
+            textIdShow.Text = "";
+        }
+
+        private void NumericView_ValueChanged(object sender, EventArgs e)
+        {
+             try
+            {
+                textTypeShow.Text = items.ElementAt((int)numericSearchResult.Value).Type;
+                textNameShow.Text = items.ElementAt((int)numericSearchResult.Value).Name;
+                textPlaceShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Place);
+                textWeightShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Weight);
+                textIdShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Id);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -197,8 +322,7 @@ namespace BP_LAB_6
     }
 
     public class TypeComparer : IComparer<Item>
-    {
-        
+    {      
 
         public int Compare(Item x, Item y)
         {
