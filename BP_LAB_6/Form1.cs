@@ -38,8 +38,8 @@ namespace BP_LAB_6
                 size = Convert.ToInt32(textSize.Text);
                 items = new List<Item>(size);
                 ids = new List<int>(size);
-                numericView.Maximum = size-1;
-                MessageBox.Show("List with capacity "+ size + " created", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                numericView.Maximum = 0;
+                MessageBox.Show($"List with capacity {size} created", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 EnableAll();
             }
@@ -62,6 +62,9 @@ namespace BP_LAB_6
                 if (items.Count() < size && !ids.Contains(id)){    
                     Item item = new Item(type, name, place, weight, id);
                     items.Add(item);
+                    ids.Add(id);
+                    numericView.Maximum = items.Count()-1;
+                    numericView.Value = 0;
                     MessageBox.Show("Succesfully added", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -102,6 +105,8 @@ namespace BP_LAB_6
                 if (items.Count() < size && !ids.Exists(x => x == id)){    
                     Item item = new Item(type, name, place, weight, id);
                     items.Insert(index, item);
+                    numericView.Maximum = items.Count()-1;
+                    numericView.Value = 0;
                 }
                 else
                 {
@@ -131,6 +136,8 @@ namespace BP_LAB_6
             {
                 indexR = Convert.ToInt32(textIndexR.Text);
                 items.RemoveAt(indexR);
+                numericView.Maximum = items.Count()-1;
+                numericView.Value = 0;
 
                 MessageBox.Show("Succesfully removed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -153,6 +160,8 @@ namespace BP_LAB_6
                 if (ids.Contains(idR))
                 {               
                     items.RemoveAt(items.FindIndex(x => x.Id == idR));
+                    numericView.Maximum = items.Count()-1;
+                    numericView.Value = 0;
                     MessageBox.Show("Succesfully removed", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     textIdR.Text = "";
                 }
@@ -282,13 +291,13 @@ namespace BP_LAB_6
 
         private void NumericView_ValueChanged(object sender, EventArgs e)
         {
-             try
+            try
             {
-                textTypeShow.Text = items.ElementAt((int)numericSearchResult.Value).Type;
-                textNameShow.Text = items.ElementAt((int)numericSearchResult.Value).Name;
-                textPlaceShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Place);
-                textWeightShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Weight);
-                textIdShow.Text = Convert.ToString(items.ElementAt((int)numericSearchResult.Value).Id);
+                textTypeShow.Text = items.ElementAt((int)numericView.Value).Type;
+                textNameShow.Text = items.ElementAt((int)numericView.Value).Name;
+                textPlaceShow.Text = Convert.ToString(items.ElementAt((int)numericView.Value).Place);
+                textWeightShow.Text = Convert.ToString(items.ElementAt((int)numericView.Value).Weight);
+                textIdShow.Text = Convert.ToString(items.ElementAt((int)numericView.Value).Id);
             }
             catch (Exception ex)
             {
