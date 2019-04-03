@@ -14,11 +14,12 @@ namespace BP_LAB_7
     {
         List<City> cities = new List<City>(100);
         List<Firm> firms = new List<Firm>(100);
-        Firm choosedFirm;  // Firm which is choosed in combo box
+        Firm choosedFirmToAdd;  // Firm which is choosed in combo box to add info
         public Form1()
         {
             InitializeComponent();
         }
+        // Adding buttons
         private void ButtonAddFirm_Click(object sender, EventArgs e)
         {
             if (textBoxFirmName.Text == "")
@@ -33,6 +34,7 @@ namespace BP_LAB_7
             {
                 firms.Add(firm);
                 comboBoxChooseFirmToAdd.DataSource = firms.Select(x => x.Name).ToList();
+                comboBoxChooseFirmToShow.DataSource = firms.Select(x => x.Name).ToList();
                 MessageBox.Show("Added");
             }
             else
@@ -44,6 +46,11 @@ namespace BP_LAB_7
 
         private void ButtonAddOffice_Click(object sender, EventArgs e)
         {
+            if (choosedFirmToAdd == null)
+            {
+                MessageBox.Show("Choose firm first!");
+                return;
+            }
             uint number;
             try
             {
@@ -58,10 +65,11 @@ namespace BP_LAB_7
 
             Office office = new Office(number);
             // Get the firm which is choosed in comboBoxChooseFirmToAdd
-            if (choosedFirm.Offices.Exists(y => y.Number == office.Number) == false)
+            if (choosedFirmToAdd.Offices.Exists(y => y.Number == office.Number) == false)
             {
-                choosedFirm.Offices.Add(office);
-                comboBoxChooseOfficeToAdd.DataSource = choosedFirm.Offices.Select(x => x.Number.ToString()).ToList();
+                choosedFirmToAdd.Offices.Add(office);
+                comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
+                listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
                 MessageBox.Show("Added");
             }
             else
@@ -73,6 +81,11 @@ namespace BP_LAB_7
 
         private void ButtonAddEmployee_Click(object sender, EventArgs e)
         {
+            if (choosedFirmToAdd == null)
+            {
+                MessageBox.Show("Choose firm first!");
+                return;
+            }
             if (textBoxEmployeeName.Text == "" || textBoxEmployeeSurname.Text == "")
             {
                 MessageBox.Show("Employee's name or surname is empty");
@@ -83,11 +96,12 @@ namespace BP_LAB_7
             string  EmployeeName = textBoxEmployeeName.Text,
                     EmployeeSurname = textBoxEmployeeSurname.Text;
             // Get the firm which is choosed in comboBoxChooseFirmToAdd
-            if (choosedFirm.Employees.Exists(y => (y.Name == EmployeeName) && (y.Surname == EmployeeSurname) ) == false)
+            if (choosedFirmToAdd.Employees.Exists(y => (y.Name == EmployeeName) && (y.Surname == EmployeeSurname) ) == false)
             {
-                Employee employee = new Employee(EmployeeName, EmployeeSurname, choosedFirm);
-                choosedFirm.Employees.Add(employee);
-                comboBoxChooseEmployeeToAdd.DataSource = choosedFirm.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                Employee employee = new Employee(EmployeeName, EmployeeSurname, choosedFirmToAdd);
+                choosedFirmToAdd.Employees.Add(employee);
+                comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
                 MessageBox.Show("Added");
             }
             else
@@ -100,19 +114,24 @@ namespace BP_LAB_7
 
         private void ComboBoxChooseFirmToAdd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            choosedFirm = firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text);
-            comboBoxChooseOfficeToAdd.DataSource = choosedFirm.Offices.Select(x => x.Number.ToString()).ToList();
+            choosedFirmToAdd = firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text);
+            comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
             comboBoxChooseOfficeToAdd.Refresh();
-            comboBoxChooseEmployeeToAdd.DataSource = choosedFirm.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             comboBoxChooseEmployeeToAdd.Refresh();
         }
 
         private void ButtonGiveAccessToOffice_Click(object sender, EventArgs e)
         {
+            if (choosedFirmToAdd == null)
+            {
+                MessageBox.Show("Choose firm first!");
+                return;
+            }
             string  employeeString = comboBoxChooseEmployeeToAdd.Text,
                     officeString = comboBoxChooseOfficeToAdd.Text;
-            Employee employee = choosedFirm.Employees.Find(x => x.Name + " " + x.Surname == employeeString);
-            Office office = choosedFirm.Offices.Find(x => x.Number.ToString() == officeString);
+            Employee employee = choosedFirmToAdd.Employees.Find(x => x.Name + " " + x.Surname == employeeString);
+            Office office = choosedFirmToAdd.Offices.Find(x => x.Number.ToString() == officeString);
             if (employee.Offices.Exists(x => x.Number == office.Number) == false)
             {
                 employee.Offices.Add(office);
@@ -122,6 +141,31 @@ namespace BP_LAB_7
             {
                 MessageBox.Show("The employee has an access to this office already");
             }
+        }
+
+        // Showing buttons
+        private Firm choosedFirmToShow;  // Firm which is choosed in combo box to show info
+
+        private void ComboBoxChooseFirmToShow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            choosedFirmToShow = firms.Find(x => x.Name == comboBoxChooseFirmToShow.Text);
+            listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
+            listBoxAccessableOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Employees).ToList();
+            /*comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
+            comboBoxChooseOfficeToAdd.Refresh();
+            comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            comboBoxChooseEmployeeToAdd.Refresh();*/
+        }
+
+        private void ComboBoxChooseEmployeeToShow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxChooseOfficeToShow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     /*

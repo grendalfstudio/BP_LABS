@@ -31,21 +31,11 @@
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPageVariant1 = new System.Windows.Forms.TabPage();
             this.tabPageVariant3 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.comboBoxChooseEmployeeToShow = new System.Windows.Forms.ComboBox();
+            this.labelChooseEmployeeToShow = new System.Windows.Forms.Label();
             this.comboBoxChooseFirmToAdd = new System.Windows.Forms.ComboBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxChooseOfficeToShow = new System.Windows.Forms.ComboBox();
+            this.labelChooseOfficeToShow = new System.Windows.Forms.Label();
             this.labelChooseFirmToAdd = new System.Windows.Forms.Label();
             this.groupBoxGiveAccessToOffice = new System.Windows.Forms.GroupBox();
             this.comboBoxChooseOfficeToAdd = new System.Windows.Forms.ComboBox();
@@ -53,35 +43,42 @@
             this.buttonGiveAccessToOffice = new System.Windows.Forms.Button();
             this.comboBoxChooseEmployeeToAdd = new System.Windows.Forms.ComboBox();
             this.labelChooseEmployeeToAdd = new System.Windows.Forms.Label();
+            this.comboBoxChooseFirmToShow = new System.Windows.Forms.ComboBox();
             this.groupBoxAddEmployee = new System.Windows.Forms.GroupBox();
             this.textBoxEmployeeSurname = new System.Windows.Forms.TextBox();
             this.labelEmployeeSurname = new System.Windows.Forms.Label();
             this.buttonAddEmployee = new System.Windows.Forms.Button();
             this.textBoxEmployeeName = new System.Windows.Forms.TextBox();
             this.labelEmployeeName = new System.Windows.Forms.Label();
+            this.labelChooseFirmToShow = new System.Windows.Forms.Label();
             this.groupBoxRentOffice = new System.Windows.Forms.GroupBox();
             this.buttonAddOffice = new System.Windows.Forms.Button();
             this.textBoxOfficeNumber = new System.Windows.Forms.TextBox();
             this.labelOfficeNumber = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.groupBoxFirmOfficesAndEmployees = new System.Windows.Forms.GroupBox();
+            this.labelFirmOffices = new System.Windows.Forms.Label();
+            this.labelFirmEmployees = new System.Windows.Forms.Label();
+            this.listBoxFirmOffices = new System.Windows.Forms.ListBox();
+            this.listBoxFirmEmployees = new System.Windows.Forms.ListBox();
             this.groupBoxAddFirm = new System.Windows.Forms.GroupBox();
             this.buttonAddFirm = new System.Windows.Forms.Button();
             this.textBoxFirmName = new System.Windows.Forms.TextBox();
             this.labelFirmName = new System.Windows.Forms.Label();
+            this.groupBoxEmployeeOffices = new System.Windows.Forms.GroupBox();
+            this.labelAccessableOffices = new System.Windows.Forms.Label();
+            this.listBoxAccessableOffices = new System.Windows.Forms.ListBox();
+            this.groupBoxOfficeStaff = new System.Windows.Forms.GroupBox();
+            this.labelOfficeStaff = new System.Windows.Forms.Label();
+            this.listBoxOfficeStaff = new System.Windows.Forms.ListBox();
             this.tabControlMain.SuspendLayout();
             this.tabPageVariant3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBoxGiveAccessToOffice.SuspendLayout();
             this.groupBoxAddEmployee.SuspendLayout();
             this.groupBoxRentOffice.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxFirmOfficesAndEmployees.SuspendLayout();
             this.groupBoxAddFirm.SuspendLayout();
+            this.groupBoxEmployeeOffices.SuspendLayout();
+            this.groupBoxOfficeStaff.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -91,7 +88,7 @@
             this.tabControlMain.Location = new System.Drawing.Point(-1, -1);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(1070, 422);
+            this.tabControlMain.Size = new System.Drawing.Size(1070, 549);
             this.tabControlMain.TabIndex = 0;
             // 
             // tabPageVariant1
@@ -106,97 +103,44 @@
             // 
             // tabPageVariant3
             // 
-            this.tabPageVariant3.Controls.Add(this.groupBox6);
+            this.tabPageVariant3.Controls.Add(this.groupBoxOfficeStaff);
+            this.tabPageVariant3.Controls.Add(this.groupBoxEmployeeOffices);
             this.tabPageVariant3.Controls.Add(this.comboBoxChooseFirmToAdd);
-            this.tabPageVariant3.Controls.Add(this.groupBox5);
             this.tabPageVariant3.Controls.Add(this.labelChooseFirmToAdd);
             this.tabPageVariant3.Controls.Add(this.groupBoxGiveAccessToOffice);
+            this.tabPageVariant3.Controls.Add(this.comboBoxChooseFirmToShow);
             this.tabPageVariant3.Controls.Add(this.groupBoxAddEmployee);
+            this.tabPageVariant3.Controls.Add(this.labelChooseFirmToShow);
             this.tabPageVariant3.Controls.Add(this.groupBoxRentOffice);
-            this.tabPageVariant3.Controls.Add(this.groupBox2);
+            this.tabPageVariant3.Controls.Add(this.groupBoxFirmOfficesAndEmployees);
             this.tabPageVariant3.Controls.Add(this.groupBoxAddFirm);
             this.tabPageVariant3.Location = new System.Drawing.Point(4, 22);
             this.tabPageVariant3.Name = "tabPageVariant3";
             this.tabPageVariant3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVariant3.Size = new System.Drawing.Size(1062, 396);
+            this.tabPageVariant3.Size = new System.Drawing.Size(1062, 523);
             this.tabPageVariant3.TabIndex = 1;
             this.tabPageVariant3.Text = "Variant 3";
             this.tabPageVariant3.UseVisualStyleBackColor = true;
             // 
-            // groupBox6
+            // comboBoxChooseEmployeeToShow
             // 
-            this.groupBox6.Controls.Add(this.comboBox8);
-            this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Controls.Add(this.listBox3);
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Controls.Add(this.comboBox9);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Location = new System.Drawing.Point(721, 13);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(339, 205);
-            this.groupBox6.TabIndex = 19;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "The offices that are accessable to the employee";
+            this.comboBoxChooseEmployeeToShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxChooseEmployeeToShow.FormattingEnabled = true;
+            this.comboBoxChooseEmployeeToShow.Location = new System.Drawing.Point(14, 70);
+            this.comboBoxChooseEmployeeToShow.Name = "comboBoxChooseEmployeeToShow";
+            this.comboBoxChooseEmployeeToShow.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxChooseEmployeeToShow.TabIndex = 13;
+            this.comboBoxChooseEmployeeToShow.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseEmployeeToShow_SelectedIndexChanged);
             // 
-            // comboBox8
+            // labelChooseEmployeeToShow
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(88, 22);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(128, 21);
-            this.comboBox8.TabIndex = 17;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(74, 13);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Choose a firm:";
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Items.AddRange(new object[] {
-            "36t46",
-            "dgdg",
-            "fgfd",
-            "g",
-            "d",
-            "g",
-            "gd",
-            "gd"});
-            this.listBox3.Location = new System.Drawing.Point(6, 84);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(150, 95);
-            this.listBox3.TabIndex = 15;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(219, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 25);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Show properties";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // comboBox9
-            // 
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(118, 57);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(128, 21);
-            this.comboBox9.TabIndex = 13;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 60);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(109, 13);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Choose an employee:";
+            this.labelChooseEmployeeToShow.AutoSize = true;
+            this.labelChooseEmployeeToShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelChooseEmployeeToShow.Location = new System.Drawing.Point(35, 54);
+            this.labelChooseEmployeeToShow.Name = "labelChooseEmployeeToShow";
+            this.labelChooseEmployeeToShow.Size = new System.Drawing.Size(109, 13);
+            this.labelChooseEmployeeToShow.TabIndex = 14;
+            this.labelChooseEmployeeToShow.Text = "Choose an employee:";
             // 
             // comboBoxChooseFirmToAdd
             // 
@@ -207,80 +151,24 @@
             this.comboBoxChooseFirmToAdd.TabIndex = 11;
             this.comboBoxChooseFirmToAdd.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseFirmToAdd_SelectedIndexChanged);
             // 
-            // groupBox5
+            // comboBoxChooseOfficeToShow
             // 
-            this.groupBox5.Controls.Add(this.comboBox7);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.listBox4);
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.comboBox6);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Location = new System.Drawing.Point(363, 167);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(339, 205);
-            this.groupBox5.TabIndex = 17;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Employees that has access to the office";
+            this.comboBoxChooseOfficeToShow.FormattingEnabled = true;
+            this.comboBoxChooseOfficeToShow.Location = new System.Drawing.Point(14, 70);
+            this.comboBoxChooseOfficeToShow.Name = "comboBoxChooseOfficeToShow";
+            this.comboBoxChooseOfficeToShow.Size = new System.Drawing.Size(150, 24);
+            this.comboBoxChooseOfficeToShow.TabIndex = 13;
+            this.comboBoxChooseOfficeToShow.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseOfficeToShow_SelectedIndexChanged);
             // 
-            // comboBox7
+            // labelChooseOfficeToShow
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(88, 22);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(128, 21);
-            this.comboBox7.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 25);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Choose a firm:";
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Items.AddRange(new object[] {
-            "36t46",
-            "dgdg",
-            "fgfd",
-            "g",
-            "d",
-            "g",
-            "gd",
-            "gd"});
-            this.listBox4.Location = new System.Drawing.Point(6, 84);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(150, 95);
-            this.listBox4.TabIndex = 15;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(219, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 25);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Show properties";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(99, 57);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(128, 21);
-            this.comboBox6.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Choose an office:";
+            this.labelChooseOfficeToShow.AutoSize = true;
+            this.labelChooseOfficeToShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelChooseOfficeToShow.Location = new System.Drawing.Point(47, 54);
+            this.labelChooseOfficeToShow.Name = "labelChooseOfficeToShow";
+            this.labelChooseOfficeToShow.Size = new System.Drawing.Size(90, 13);
+            this.labelChooseOfficeToShow.TabIndex = 14;
+            this.labelChooseOfficeToShow.Text = "Choose an office:";
             // 
             // labelChooseFirmToAdd
             // 
@@ -356,6 +244,16 @@
             this.labelChooseEmployeeToAdd.TabIndex = 12;
             this.labelChooseEmployeeToAdd.Text = "Choose an employee:";
             // 
+            // comboBoxChooseFirmToShow
+            // 
+            this.comboBoxChooseFirmToShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxChooseFirmToShow.FormattingEnabled = true;
+            this.comboBoxChooseFirmToShow.Location = new System.Drawing.Point(495, 6);
+            this.comboBoxChooseFirmToShow.Name = "comboBoxChooseFirmToShow";
+            this.comboBoxChooseFirmToShow.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxChooseFirmToShow.TabIndex = 13;
+            this.comboBoxChooseFirmToShow.SelectedIndexChanged += new System.EventHandler(this.ComboBoxChooseFirmToShow_SelectedIndexChanged);
+            // 
             // groupBoxAddEmployee
             // 
             this.groupBoxAddEmployee.Controls.Add(this.textBoxEmployeeSurname);
@@ -420,6 +318,16 @@
             this.labelEmployeeName.TabIndex = 1;
             this.labelEmployeeName.Text = "Name:";
             // 
+            // labelChooseFirmToShow
+            // 
+            this.labelChooseFirmToShow.AutoSize = true;
+            this.labelChooseFirmToShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelChooseFirmToShow.Location = new System.Drawing.Point(396, 7);
+            this.labelChooseFirmToShow.Name = "labelChooseFirmToShow";
+            this.labelChooseFirmToShow.Size = new System.Drawing.Size(93, 16);
+            this.labelChooseFirmToShow.TabIndex = 14;
+            this.labelChooseFirmToShow.Text = "Choose a firm:";
+            // 
             // groupBoxRentOffice
             // 
             this.groupBoxRentOffice.Controls.Add(this.buttonAddOffice);
@@ -463,24 +371,45 @@
             this.labelOfficeNumber.TabIndex = 1;
             this.labelOfficeNumber.Text = "Office number:";
             // 
-            // groupBox2
+            // groupBoxFirmOfficesAndEmployees
             // 
-            this.groupBox2.Controls.Add(this.listBox2);
-            this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(363, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 155);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Offices and employees of a firm";
+            this.groupBoxFirmOfficesAndEmployees.Controls.Add(this.labelFirmOffices);
+            this.groupBoxFirmOfficesAndEmployees.Controls.Add(this.labelFirmEmployees);
+            this.groupBoxFirmOfficesAndEmployees.Controls.Add(this.listBoxFirmOffices);
+            this.groupBoxFirmOfficesAndEmployees.Controls.Add(this.listBoxFirmEmployees);
+            this.groupBoxFirmOfficesAndEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxFirmOfficesAndEmployees.Location = new System.Drawing.Point(345, 33);
+            this.groupBoxFirmOfficesAndEmployees.Name = "groupBoxFirmOfficesAndEmployees";
+            this.groupBoxFirmOfficesAndEmployees.Size = new System.Drawing.Size(350, 140);
+            this.groupBoxFirmOfficesAndEmployees.TabIndex = 4;
+            this.groupBoxFirmOfficesAndEmployees.TabStop = false;
+            this.groupBoxFirmOfficesAndEmployees.Text = "Offices and employees of a firm";
             // 
-            // listBox2
+            // labelFirmOffices
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Items.AddRange(new object[] {
+            this.labelFirmOffices.AutoSize = true;
+            this.labelFirmOffices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFirmOffices.Location = new System.Drawing.Point(175, 22);
+            this.labelFirmOffices.Name = "labelFirmOffices";
+            this.labelFirmOffices.Size = new System.Drawing.Size(43, 13);
+            this.labelFirmOffices.TabIndex = 18;
+            this.labelFirmOffices.Text = "Offices:";
+            // 
+            // labelFirmEmployees
+            // 
+            this.labelFirmEmployees.AutoSize = true;
+            this.labelFirmEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelFirmEmployees.Location = new System.Drawing.Point(6, 22);
+            this.labelFirmEmployees.Name = "labelFirmEmployees";
+            this.labelFirmEmployees.Size = new System.Drawing.Size(61, 13);
+            this.labelFirmEmployees.TabIndex = 17;
+            this.labelFirmEmployees.Text = "Employees:";
+            // 
+            // listBoxFirmOffices
+            // 
+            this.listBoxFirmOffices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxFirmOffices.FormattingEnabled = true;
+            this.listBoxFirmOffices.Items.AddRange(new object[] {
             "36t46",
             "dgdg",
             "fgfd",
@@ -489,15 +418,16 @@
             "g",
             "gd",
             "gd"});
-            this.listBox2.Location = new System.Drawing.Point(158, 56);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(150, 95);
-            this.listBox2.TabIndex = 16;
+            this.listBoxFirmOffices.Location = new System.Drawing.Point(178, 38);
+            this.listBoxFirmOffices.Name = "listBoxFirmOffices";
+            this.listBoxFirmOffices.Size = new System.Drawing.Size(166, 95);
+            this.listBoxFirmOffices.TabIndex = 16;
             // 
-            // listBox1
+            // listBoxFirmEmployees
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.listBoxFirmEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxFirmEmployees.FormattingEnabled = true;
+            this.listBoxFirmEmployees.Items.AddRange(new object[] {
             "36t46",
             "dgdg",
             "fgfd",
@@ -506,36 +436,10 @@
             "g",
             "gd",
             "gd"});
-            this.listBox1.Location = new System.Drawing.Point(6, 56);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(150, 95);
-            this.listBox1.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(219, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 25);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Show properties";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(85, 22);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(128, 21);
-            this.comboBox3.TabIndex = 13;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Choose a firm:";
+            this.listBoxFirmEmployees.Location = new System.Drawing.Point(6, 38);
+            this.listBoxFirmEmployees.Name = "listBoxFirmEmployees";
+            this.listBoxFirmEmployees.Size = new System.Drawing.Size(166, 95);
+            this.listBoxFirmEmployees.TabIndex = 15;
             // 
             // groupBoxAddFirm
             // 
@@ -580,31 +484,115 @@
             this.labelFirmName.TabIndex = 0;
             this.labelFirmName.Text = "Firm name:";
             // 
+            // groupBoxEmployeeOffices
+            // 
+            this.groupBoxEmployeeOffices.Controls.Add(this.labelAccessableOffices);
+            this.groupBoxEmployeeOffices.Controls.Add(this.listBoxAccessableOffices);
+            this.groupBoxEmployeeOffices.Controls.Add(this.labelChooseEmployeeToShow);
+            this.groupBoxEmployeeOffices.Controls.Add(this.comboBoxChooseEmployeeToShow);
+            this.groupBoxEmployeeOffices.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxEmployeeOffices.Location = new System.Drawing.Point(345, 179);
+            this.groupBoxEmployeeOffices.Name = "groupBoxEmployeeOffices";
+            this.groupBoxEmployeeOffices.Size = new System.Drawing.Size(350, 140);
+            this.groupBoxEmployeeOffices.TabIndex = 19;
+            this.groupBoxEmployeeOffices.TabStop = false;
+            this.groupBoxEmployeeOffices.Text = "The offices that are accessable to the employee";
+            // 
+            // labelAccessableOffices
+            // 
+            this.labelAccessableOffices.AutoSize = true;
+            this.labelAccessableOffices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelAccessableOffices.Location = new System.Drawing.Point(175, 22);
+            this.labelAccessableOffices.Name = "labelAccessableOffices";
+            this.labelAccessableOffices.Size = new System.Drawing.Size(99, 13);
+            this.labelAccessableOffices.TabIndex = 18;
+            this.labelAccessableOffices.Text = "Accessable offices:";
+            // 
+            // listBoxAccessableOffices
+            // 
+            this.listBoxAccessableOffices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxAccessableOffices.FormattingEnabled = true;
+            this.listBoxAccessableOffices.Items.AddRange(new object[] {
+            "36t46",
+            "dgdg",
+            "fgfd",
+            "g",
+            "d",
+            "g",
+            "gd",
+            "gd"});
+            this.listBoxAccessableOffices.Location = new System.Drawing.Point(178, 38);
+            this.listBoxAccessableOffices.Name = "listBoxAccessableOffices";
+            this.listBoxAccessableOffices.Size = new System.Drawing.Size(166, 95);
+            this.listBoxAccessableOffices.TabIndex = 16;
+            // 
+            // groupBoxOfficeStaff
+            // 
+            this.groupBoxOfficeStaff.Controls.Add(this.labelOfficeStaff);
+            this.groupBoxOfficeStaff.Controls.Add(this.listBoxOfficeStaff);
+            this.groupBoxOfficeStaff.Controls.Add(this.labelChooseOfficeToShow);
+            this.groupBoxOfficeStaff.Controls.Add(this.comboBoxChooseOfficeToShow);
+            this.groupBoxOfficeStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBoxOfficeStaff.Location = new System.Drawing.Point(345, 325);
+            this.groupBoxOfficeStaff.Name = "groupBoxOfficeStaff";
+            this.groupBoxOfficeStaff.Size = new System.Drawing.Size(350, 140);
+            this.groupBoxOfficeStaff.TabIndex = 20;
+            this.groupBoxOfficeStaff.TabStop = false;
+            this.groupBoxOfficeStaff.Text = "Employees that has access to the office";
+            // 
+            // labelOfficeStaff
+            // 
+            this.labelOfficeStaff.AutoSize = true;
+            this.labelOfficeStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelOfficeStaff.Location = new System.Drawing.Point(175, 22);
+            this.labelOfficeStaff.Name = "labelOfficeStaff";
+            this.labelOfficeStaff.Size = new System.Drawing.Size(61, 13);
+            this.labelOfficeStaff.TabIndex = 17;
+            this.labelOfficeStaff.Text = "Office staff:";
+            // 
+            // listBoxOfficeStaff
+            // 
+            this.listBoxOfficeStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBoxOfficeStaff.FormattingEnabled = true;
+            this.listBoxOfficeStaff.Items.AddRange(new object[] {
+            "36t46",
+            "dgdg",
+            "fgfd",
+            "g",
+            "d",
+            "g",
+            "gd",
+            "gd"});
+            this.listBoxOfficeStaff.Location = new System.Drawing.Point(178, 38);
+            this.listBoxOfficeStaff.Name = "listBoxOfficeStaff";
+            this.listBoxOfficeStaff.Size = new System.Drawing.Size(166, 95);
+            this.listBoxOfficeStaff.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 436);
+            this.ClientSize = new System.Drawing.Size(1112, 582);
             this.Controls.Add(this.tabControlMain);
             this.Name = "Form1";
             this.Text = "BP_LAB_7";
             this.tabControlMain.ResumeLayout(false);
             this.tabPageVariant3.ResumeLayout(false);
             this.tabPageVariant3.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBoxGiveAccessToOffice.ResumeLayout(false);
             this.groupBoxGiveAccessToOffice.PerformLayout();
             this.groupBoxAddEmployee.ResumeLayout(false);
             this.groupBoxAddEmployee.PerformLayout();
             this.groupBoxRentOffice.ResumeLayout(false);
             this.groupBoxRentOffice.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxFirmOfficesAndEmployees.ResumeLayout(false);
+            this.groupBoxFirmOfficesAndEmployees.PerformLayout();
             this.groupBoxAddFirm.ResumeLayout(false);
             this.groupBoxAddFirm.PerformLayout();
+            this.groupBoxEmployeeOffices.ResumeLayout(false);
+            this.groupBoxEmployeeOffices.PerformLayout();
+            this.groupBoxOfficeStaff.ResumeLayout(false);
+            this.groupBoxOfficeStaff.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -614,7 +602,7 @@
         private System.Windows.Forms.TabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageVariant1;
         private System.Windows.Forms.TabPage tabPageVariant3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxFirmOfficesAndEmployees;
         private System.Windows.Forms.GroupBox groupBoxAddFirm;
         private System.Windows.Forms.Label labelOfficeNumber;
         private System.Windows.Forms.Label labelFirmName;
@@ -637,25 +625,22 @@
         private System.Windows.Forms.Label labelChooseEmployeeToAdd;
         private System.Windows.Forms.ComboBox comboBoxChooseOfficeToAdd;
         private System.Windows.Forms.Label labelChooseOfficeToAdd;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox listBoxFirmEmployees;
+        private System.Windows.Forms.ComboBox comboBoxChooseFirmToShow;
+        private System.Windows.Forms.Label labelChooseFirmToShow;
+        private System.Windows.Forms.ListBox listBoxFirmOffices;
+        private System.Windows.Forms.ComboBox comboBoxChooseOfficeToShow;
+        private System.Windows.Forms.Label labelChooseOfficeToShow;
+        private System.Windows.Forms.ComboBox comboBoxChooseEmployeeToShow;
+        private System.Windows.Forms.Label labelChooseEmployeeToShow;
+        private System.Windows.Forms.Label labelFirmOffices;
+        private System.Windows.Forms.Label labelFirmEmployees;
+        private System.Windows.Forms.GroupBox groupBoxOfficeStaff;
+        private System.Windows.Forms.Label labelOfficeStaff;
+        private System.Windows.Forms.ListBox listBoxOfficeStaff;
+        private System.Windows.Forms.GroupBox groupBoxEmployeeOffices;
+        private System.Windows.Forms.Label labelAccessableOffices;
+        private System.Windows.Forms.ListBox listBoxAccessableOffices;
     }
 }
 
