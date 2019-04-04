@@ -136,5 +136,57 @@ namespace BP_LAB_8
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnTranslate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string input = richText.Text;
+                string result = "";
+                string wordTranslated = "";
+                
+                input = input.ToLower();
+                input = input.Replace(',', ' ');
+                input = input.Replace('.', ' ');
+                input = input.Replace('!', ' ');
+                input = input.Replace('?', ' ');
+
+                richTextTranslated.Text = "";
+                
+                string[] inputList = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+                if (radioEnglish.Checked)
+                {
+                    foreach (string word in inputList)
+                    {
+                        if (uaenDict.TryGetValue(word, out wordTranslated))
+                        {
+                            result += wordTranslated + ' ';
+                        } else
+                        {
+                            result += word + ' ';
+                        }
+                    }
+                } else if (radioUkrainian.Checked)
+                {
+                    foreach (string word in inputList)
+                    {
+                        if (enuaDict.TryGetValue(word, out wordTranslated))
+                        {
+                            result += wordTranslated + ' ';
+                        } else
+                        {
+                            result += word + ' ';
+                        }
+                    }
+                }
+                richTextTranslated.Text = result;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

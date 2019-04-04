@@ -30,24 +30,24 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dictView = new System.Windows.Forms.RichTextBox();
-            this.textEnglish = new System.Windows.Forms.TextBox();
-            this.textUkainian = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnShowEn = new System.Windows.Forms.Button();
-            this.btnShowUa = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textWord = new System.Windows.Forms.TextBox();
-            this.textTranslated = new System.Windows.Forms.TextBox();
-            this.btnTranslateWord = new System.Windows.Forms.Button();
-            this.richText = new System.Windows.Forms.RichTextBox();
-            this.richTextTranslated = new System.Windows.Forms.RichTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnShowUa = new System.Windows.Forms.Button();
+            this.btnShowEn = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.textUkainian = new System.Windows.Forms.TextBox();
+            this.textEnglish = new System.Windows.Forms.TextBox();
+            this.dictView = new System.Windows.Forms.RichTextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnTranslate = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioUkrainian = new System.Windows.Forms.RadioButton();
+            this.radioEnglish = new System.Windows.Forms.RadioButton();
+            this.richTextTranslated = new System.Windows.Forms.RichTextBox();
+            this.richText = new System.Windows.Forms.RichTextBox();
+            this.btnTranslateWord = new System.Windows.Forms.Button();
+            this.textTranslated = new System.Windows.Forms.TextBox();
+            this.textWord = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,6 +82,76 @@
             this.tabPage1.Text = "Dictionary setup";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(320, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Ukrainian word";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(196, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "English wod";
+            // 
+            // btnShowUa
+            // 
+            this.btnShowUa.Location = new System.Drawing.Point(323, 94);
+            this.btnShowUa.Name = "btnShowUa";
+            this.btnShowUa.Size = new System.Drawing.Size(95, 23);
+            this.btnShowUa.TabIndex = 5;
+            this.btnShowUa.Text = "Show Ua-En dict";
+            this.btnShowUa.UseVisualStyleBackColor = true;
+            this.btnShowUa.Click += new System.EventHandler(this.btnShowUa_Click);
+            // 
+            // btnShowEn
+            // 
+            this.btnShowEn.Location = new System.Drawing.Point(196, 94);
+            this.btnShowEn.Name = "btnShowEn";
+            this.btnShowEn.Size = new System.Drawing.Size(95, 23);
+            this.btnShowEn.TabIndex = 4;
+            this.btnShowEn.Text = "Show En-Ua dict";
+            this.btnShowEn.UseVisualStyleBackColor = true;
+            this.btnShowEn.Click += new System.EventHandler(this.btnShowEn_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(270, 62);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Add word";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // textUkainian
+            // 
+            this.textUkainian.Location = new System.Drawing.Point(323, 36);
+            this.textUkainian.Name = "textUkainian";
+            this.textUkainian.Size = new System.Drawing.Size(95, 20);
+            this.textUkainian.TabIndex = 2;
+            // 
+            // textEnglish
+            // 
+            this.textEnglish.Location = new System.Drawing.Point(196, 36);
+            this.textEnglish.Name = "textEnglish";
+            this.textEnglish.Size = new System.Drawing.Size(95, 20);
+            this.textEnglish.TabIndex = 1;
+            // 
+            // dictView
+            // 
+            this.dictView.Location = new System.Drawing.Point(196, 126);
+            this.dictView.Name = "dictView";
+            this.dictView.Size = new System.Drawing.Size(222, 361);
+            this.dictView.TabIndex = 0;
+            this.dictView.Text = "";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btnTranslate);
@@ -99,89 +169,64 @@
             this.tabPage2.Text = "Translation";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dictView
+            // btnTranslate
             // 
-            this.dictView.Location = new System.Drawing.Point(8, 122);
-            this.dictView.Name = "dictView";
-            this.dictView.Size = new System.Drawing.Size(222, 361);
-            this.dictView.TabIndex = 0;
-            this.dictView.Text = "";
+            this.btnTranslate.Location = new System.Drawing.Point(247, 198);
+            this.btnTranslate.Name = "btnTranslate";
+            this.btnTranslate.Size = new System.Drawing.Size(121, 23);
+            this.btnTranslate.TabIndex = 6;
+            this.btnTranslate.Text = "Translate";
+            this.btnTranslate.UseVisualStyleBackColor = true;
+            this.btnTranslate.Click += new System.EventHandler(this.btnTranslate_Click);
             // 
-            // textEnglish
+            // groupBox1
             // 
-            this.textEnglish.Location = new System.Drawing.Point(8, 32);
-            this.textEnglish.Name = "textEnglish";
-            this.textEnglish.Size = new System.Drawing.Size(95, 20);
-            this.textEnglish.TabIndex = 1;
+            this.groupBox1.Controls.Add(this.radioUkrainian);
+            this.groupBox1.Controls.Add(this.radioEnglish);
+            this.groupBox1.Location = new System.Drawing.Point(247, 120);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(121, 71);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Direction";
             // 
-            // textUkainian
+            // radioUkrainian
             // 
-            this.textUkainian.Location = new System.Drawing.Point(135, 32);
-            this.textUkainian.Name = "textUkainian";
-            this.textUkainian.Size = new System.Drawing.Size(95, 20);
-            this.textUkainian.TabIndex = 2;
+            this.radioUkrainian.AutoSize = true;
+            this.radioUkrainian.Location = new System.Drawing.Point(7, 44);
+            this.radioUkrainian.Name = "radioUkrainian";
+            this.radioUkrainian.Size = new System.Drawing.Size(86, 17);
+            this.radioUkrainian.TabIndex = 1;
+            this.radioUkrainian.TabStop = true;
+            this.radioUkrainian.Text = "To Ukarinian";
+            this.radioUkrainian.UseVisualStyleBackColor = true;
             // 
-            // btnAdd
+            // radioEnglish
             // 
-            this.btnAdd.Location = new System.Drawing.Point(82, 58);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Add word";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.radioEnglish.AutoSize = true;
+            this.radioEnglish.Location = new System.Drawing.Point(7, 20);
+            this.radioEnglish.Name = "radioEnglish";
+            this.radioEnglish.Size = new System.Drawing.Size(75, 17);
+            this.radioEnglish.TabIndex = 0;
+            this.radioEnglish.TabStop = true;
+            this.radioEnglish.Text = "To English";
+            this.radioEnglish.UseVisualStyleBackColor = true;
             // 
-            // btnShowEn
+            // richTextTranslated
             // 
-            this.btnShowEn.Location = new System.Drawing.Point(8, 90);
-            this.btnShowEn.Name = "btnShowEn";
-            this.btnShowEn.Size = new System.Drawing.Size(95, 23);
-            this.btnShowEn.TabIndex = 4;
-            this.btnShowEn.Text = "Show En-Ua dict";
-            this.btnShowEn.UseVisualStyleBackColor = true;
-            this.btnShowEn.Click += new System.EventHandler(this.btnShowEn_Click);
+            this.richTextTranslated.Location = new System.Drawing.Point(374, 107);
+            this.richTextTranslated.Name = "richTextTranslated";
+            this.richTextTranslated.Size = new System.Drawing.Size(233, 374);
+            this.richTextTranslated.TabIndex = 4;
+            this.richTextTranslated.Text = "";
             // 
-            // btnShowUa
+            // richText
             // 
-            this.btnShowUa.Location = new System.Drawing.Point(135, 90);
-            this.btnShowUa.Name = "btnShowUa";
-            this.btnShowUa.Size = new System.Drawing.Size(95, 23);
-            this.btnShowUa.TabIndex = 5;
-            this.btnShowUa.Text = "Show Ua-En dict";
-            this.btnShowUa.UseVisualStyleBackColor = true;
-            this.btnShowUa.Click += new System.EventHandler(this.btnShowUa_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "English wod";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(132, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Ukrainian word";
-            // 
-            // textWord
-            // 
-            this.textWord.Location = new System.Drawing.Point(190, 24);
-            this.textWord.Name = "textWord";
-            this.textWord.Size = new System.Drawing.Size(100, 20);
-            this.textWord.TabIndex = 0;
-            // 
-            // textTranslated
-            // 
-            this.textTranslated.Location = new System.Drawing.Point(323, 24);
-            this.textTranslated.Name = "textTranslated";
-            this.textTranslated.Size = new System.Drawing.Size(100, 20);
-            this.textTranslated.TabIndex = 1;
+            this.richText.Location = new System.Drawing.Point(7, 107);
+            this.richText.Name = "richText";
+            this.richText.Size = new System.Drawing.Size(233, 374);
+            this.richText.TabIndex = 3;
+            this.richText.Text = "";
             // 
             // btnTranslateWord
             // 
@@ -193,63 +238,19 @@
             this.btnTranslateWord.UseVisualStyleBackColor = true;
             this.btnTranslateWord.Click += new System.EventHandler(this.btnTranslateWord_Click);
             // 
-            // richText
+            // textTranslated
             // 
-            this.richText.Location = new System.Drawing.Point(7, 107);
-            this.richText.Name = "richText";
-            this.richText.Size = new System.Drawing.Size(233, 374);
-            this.richText.TabIndex = 3;
-            this.richText.Text = "";
+            this.textTranslated.Location = new System.Drawing.Point(323, 24);
+            this.textTranslated.Name = "textTranslated";
+            this.textTranslated.Size = new System.Drawing.Size(100, 20);
+            this.textTranslated.TabIndex = 1;
             // 
-            // richTextTranslated
+            // textWord
             // 
-            this.richTextTranslated.Location = new System.Drawing.Point(374, 107);
-            this.richTextTranslated.Name = "richTextTranslated";
-            this.richTextTranslated.Size = new System.Drawing.Size(233, 374);
-            this.richTextTranslated.TabIndex = 4;
-            this.richTextTranslated.Text = "";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(247, 120);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(121, 71);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Direction";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(75, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "To English";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "To Ukarinian";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // btnTranslate
-            // 
-            this.btnTranslate.Location = new System.Drawing.Point(247, 198);
-            this.btnTranslate.Name = "btnTranslate";
-            this.btnTranslate.Size = new System.Drawing.Size(121, 23);
-            this.btnTranslate.TabIndex = 6;
-            this.btnTranslate.Text = "Translate";
-            this.btnTranslate.UseVisualStyleBackColor = true;
+            this.textWord.Location = new System.Drawing.Point(190, 24);
+            this.textWord.Name = "textWord";
+            this.textWord.Size = new System.Drawing.Size(100, 20);
+            this.textWord.TabIndex = 0;
             // 
             // Form1
             // 
@@ -285,8 +286,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnTranslate;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioUkrainian;
+        private System.Windows.Forms.RadioButton radioEnglish;
         private System.Windows.Forms.RichTextBox richTextTranslated;
         private System.Windows.Forms.RichTextBox richText;
         private System.Windows.Forms.Button btnTranslateWord;
