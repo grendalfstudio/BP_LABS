@@ -145,14 +145,13 @@ namespace BP_LAB_8
                 string input = richText.Text;
                 string result = "";
                 string wordTranslated = "";
+                richTextTranslated.Text = "";
                 
                 input = input.ToLower();
                 input = input.Replace(',', ' ');
                 input = input.Replace('.', ' ');
                 input = input.Replace('!', ' ');
-                input = input.Replace('?', ' ');
-
-                richTextTranslated.Text = "";
+                input = input.Replace('?', ' ');                
                 
                 string[] inputList = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
