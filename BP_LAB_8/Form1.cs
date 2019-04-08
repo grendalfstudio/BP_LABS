@@ -151,7 +151,8 @@ namespace BP_LAB_8
                 input = input.Replace(',', ' ');
                 input = input.Replace('.', ' ');
                 input = input.Replace('!', ' ');
-                input = input.Replace('?', ' ');                
+                input = input.Replace('?', ' '); 
+                input = input.Replace('\n', ' ');    
                 
                 string[] inputList = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
