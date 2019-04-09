@@ -19,16 +19,28 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <DataGrid x:Name="dgridWords"
-                  HorizontalAlignment="Left" 
-                  Height="320" Margin="430,151,0,0" 
-                  VerticalAlignment="Top" Width="233" 
-                  HeadersVisibility="Column"/>
-        <DataGrid x:Name="dgridLetters"
-                  HorizontalAlignment="Left" 
-                  Height="320" Margin="677,151,0,0" 
-                  VerticalAlignment="Top" Width="233" 
-                  HeadersVisibility="Column"/>
+        <ListView x:Name="listWord"
+                  HorizontalAlignment="Left"
+                  Height="320" Margin="430, 151, 0, 0"
+                  VerticalAlignment="Top" Width="233">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Word" DisplayMemberBinding="{Binding Path=Key}"></GridViewColumn>
+                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listLetters"
+                  HorizontalAlignment="Left"
+                  Height="320" Margin="677, 151, 0, 0"
+                  VerticalAlignment="Top" Width="233">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Letter" DisplayMemberBinding="{Binding Path=Key}"></GridViewColumn>
+                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Button x:Name="btnOpen" Content="Open file" 
                   HorizontalAlignment="Left" 
                   Margin="430,38,0,0" 

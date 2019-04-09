@@ -86,8 +86,8 @@ namespace BP_LAB_9
                     }
                 }
 
-                dgridWords.ItemsSource = wordQuantity;
-                dgridLetters.ItemsSource = letterQuantity;
+                listWord.ItemsSource = wordQuantity;
+                listLetters.ItemsSource = letterQuantity;
             }
             catch (Exception exception)
             {
