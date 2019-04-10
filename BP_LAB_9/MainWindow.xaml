@@ -1,0 +1,68 @@
+﻿<Window x:Class="BP_LAB_9.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BP_LAB_9"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="Word analyzer" Height="520" Width="940">
+    <Grid x:Name="gridMain">
+        <RichTextBox x:Name="rtbFileText"  
+                     HorizontalAlignment="Left" 
+                     Height="460" Margin="10,10,0,0" 
+                     VerticalAlignment="Top" Width="400"
+                     IsReadOnly="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run />
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ListView x:Name="listWord"
+                  HorizontalAlignment="Left"
+                  Height="320" Margin="430, 151, 0, 0"
+                  VerticalAlignment="Top" Width="233">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Word" DisplayMemberBinding="{Binding Path=Key}"></GridViewColumn>
+                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listLetters"
+                  HorizontalAlignment="Left"
+                  Height="320" Margin="677, 151, 0, 0"
+                  VerticalAlignment="Top" Width="233">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Letter" DisplayMemberBinding="{Binding Path=Key}"></GridViewColumn>
+                    <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Path=Value}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnOpen" Content="Open file" 
+                  HorizontalAlignment="Left" 
+                  Margin="430,38,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="100" 
+                Click="BtnOpen_OnClick"/>
+        <Button x:Name = "btnAnalyze" Content="Analyze file" 
+                  HorizontalAlignment="Left" 
+                  Margin="810,38,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="100" 
+                  IsEnabled="False" 
+                  Click="BtnAnalyze_OnClick"/>
+        <Label Content="Result of word count analysis" 
+                  HorizontalAlignment="Left" 
+                  Margin="430,129,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="233"/>
+        <Label Content="Result of letter count analysis" 
+                  HorizontalAlignment="Left" 
+                  Margin="677,129,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="233"/>
+    </Grid>
+</Window>

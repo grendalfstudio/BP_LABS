@@ -48,6 +48,8 @@
             this.btnTranslateWord = new System.Windows.Forms.Button();
             this.textTranslated = new System.Windows.Forms.TextBox();
             this.textWord = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -148,12 +150,15 @@
             // 
             this.dictView.Location = new System.Drawing.Point(196, 126);
             this.dictView.Name = "dictView";
+            this.dictView.ReadOnly = true;
             this.dictView.Size = new System.Drawing.Size(222, 361);
             this.dictView.TabIndex = 0;
             this.dictView.Text = "";
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.btnTranslate);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.richTextTranslated);
@@ -216,6 +221,7 @@
             // 
             this.richTextTranslated.Location = new System.Drawing.Point(374, 107);
             this.richTextTranslated.Name = "richTextTranslated";
+            this.richTextTranslated.ReadOnly = true;
             this.richTextTranslated.Size = new System.Drawing.Size(233, 374);
             this.richTextTranslated.TabIndex = 4;
             this.richTextTranslated.Text = "";
@@ -242,6 +248,7 @@
             // 
             this.textTranslated.Location = new System.Drawing.Point(323, 24);
             this.textTranslated.Name = "textTranslated";
+            this.textTranslated.ReadOnly = true;
             this.textTranslated.Size = new System.Drawing.Size(100, 20);
             this.textTranslated.TabIndex = 1;
             // 
@@ -251,6 +258,24 @@
             this.textWord.Name = "textWord";
             this.textWord.Size = new System.Drawing.Size(100, 20);
             this.textWord.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(190, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Word";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(320, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Translated";
             // 
             // Form1
             // 
@@ -293,6 +318,8 @@
         private System.Windows.Forms.Button btnTranslateWord;
         private System.Windows.Forms.TextBox textTranslated;
         private System.Windows.Forms.TextBox textWord;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 
