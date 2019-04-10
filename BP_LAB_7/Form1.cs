@@ -12,40 +12,39 @@ namespace BP_LAB_7
 {
     public partial class Form1 : Form
     {
-        List<City> cities = new List<City>(100);
         List<Firm> firms = new List<Firm>(100);
-        Firm choosedFirmToAdd;  // Firm which is choosed in combo box to add info
+        Firm choosedFirmToAdd;          // Firm which is choosed in comboBoxFirmToAdd to add info
         public Form1()
         {
             InitializeComponent();
         }
-        // Adding buttons
+        /// Adding buttons
         private void ButtonAddFirm_Click(object sender, EventArgs e)
-        {
+        {   /// Exit cases
             if (textBoxFirmName.Text == "")
             {
                 MessageBox.Show("Firm name is empty");
                 return;
             }
-
+            /// Main work
             Firm firm = new Firm(textBoxFirmName.Text);
-            // If firm already exists
-            if (firms.Exists(x => x.Name == firm.Name) == false)
+            textBoxFirmName.Text = "";
+            if (firms.Exists(x => x.Name == firm.Name) == false)     /// If firm doesn't exist
             {
                 firms.Add(firm);
+                MessageBox.Show("Added");
+                /// Refreshing the comboBoxes with a new data
                 comboBoxChooseFirmToAdd.DataSource = firms.Select(x => x.Name).ToList();
                 comboBoxChooseFirmToShow.DataSource = firms.Select(x => x.Name).ToList();
-                MessageBox.Show("Added");
             }
             else
             {
                 MessageBox.Show("The firm is already exists");
             }
-            textBoxFirmName.Text = "";
         }
 
         private void ButtonAddOffice_Click(object sender, EventArgs e)
-        {
+        {   /// Exit cases
             if (choosedFirmToAdd == null)
             {
                 MessageBox.Show("Choose firm first!");
@@ -58,25 +57,26 @@ namespace BP_LAB_7
             }
             catch (Exception)
             {
-                MessageBox.Show("Office number must be a positive integer");
+                MessageBox.Show("Office number must be only a positive integer");
                 textBoxOfficeNumber.Text = "";
                 return;
             }
 
             Office office = new Office(number);
-            // Get the firm which is choosed in comboBoxChooseFirmToAdd
+            textBoxOfficeNumber.Text = "";
+            /// Get the firm which is choosed in comboBoxChooseFirmToAdd
             if (choosedFirmToAdd.Offices.Exists(y => y.Number == office.Number) == false)
             {
-                choosedFirmToAdd.Offices.Add(office);
-                comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
                 listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
                 MessageBox.Show("Added");
+                /// Refreshing the comboBoxes with a new data
+                choosedFirmToAdd.Offices.Add(office);
+                comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
             }
             else
             {
                 MessageBox.Show("The office is already exists");
             }
-            textBoxOfficeNumber.Text = "";
         }
 
         private void ButtonAddEmployee_Click(object sender, EventArgs e)
@@ -93,31 +93,36 @@ namespace BP_LAB_7
                 textBoxEmployeeSurname.Text = "";
                 return;
             }
-            string  EmployeeName = textBoxEmployeeName.Text,
-                    EmployeeSurname = textBoxEmployeeSurname.Text;
+
+            string EmployeeName = textBoxEmployeeName.Text;
+            string EmployeeSurname = textBoxEmployeeSurname.Text;
+            textBoxEmployeeName.Text = "";
+            textBoxEmployeeSurname.Text = "";
             // Get the firm which is choosed in comboBoxChooseFirmToAdd
             if (choosedFirmToAdd.Employees.Exists(y => (y.Name == EmployeeName) && (y.Surname == EmployeeSurname) ) == false)
             {
                 Employee employee = new Employee(EmployeeName, EmployeeSurname, choosedFirmToAdd);
                 choosedFirmToAdd.Employees.Add(employee);
-                comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
-                listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
                 MessageBox.Show("Added");
+                /// Refreshing the comboBoxes with a new data
+                comboBoxChooseEmployeeToAdd.DataSource = 
+                    choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             }
             else
             {
                 MessageBox.Show("The employee is already in this firm");
             }
-            textBoxEmployeeName.Text = "";
-            textBoxEmployeeSurname.Text = "";
         }
 
         private void ComboBoxChooseFirmToAdd_SelectedIndexChanged(object sender, EventArgs e)
         {
             choosedFirmToAdd = firms.Find(x => x.Name == comboBoxChooseFirmToAdd.Text);
+            /// Refreshing the comboBoxes with a new data
             comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
+            comboBoxChooseEmployeeToAdd.DataSource = 
+                choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             comboBoxChooseOfficeToAdd.Refresh();
-            comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             comboBoxChooseEmployeeToAdd.Refresh();
         }
 
@@ -128,8 +133,9 @@ namespace BP_LAB_7
                 MessageBox.Show("Choose firm first!");
                 return;
             }
-            string  employeeString = comboBoxChooseEmployeeToAdd.Text,
-                    officeString = comboBoxChooseOfficeToAdd.Text;
+            string employeeString = comboBoxChooseEmployeeToAdd.Text;
+            string officeString = comboBoxChooseOfficeToAdd.Text;
+            /// Refreshing the comboBoxes with a new data
             Employee employee = choosedFirmToAdd.Employees.Find(x => x.Name + " " + x.Surname == employeeString);
             Office office = choosedFirmToAdd.Offices.Find(x => x.Number.ToString() == officeString);
             if (employee.Offices.Exists(x => x.Number == office.Number) == false)
@@ -144,64 +150,36 @@ namespace BP_LAB_7
         }
 
         // Showing buttons
-        private Firm choosedFirmToShow;  // Firm which is choosed in combo box to show info
+        private Firm choosedFirmToShow;         // Firm which is choosed in combo box to show info
+        private Employee choosedEmployeeToShow; // Employee which is choosed in combo box to show info
+        private Office choosedOfficeToShow;     // Office which is choosed in combo box to show info
 
         private void ComboBoxChooseFirmToShow_SelectedIndexChanged(object sender, EventArgs e)
         {
             choosedFirmToShow = firms.Find(x => x.Name == comboBoxChooseFirmToShow.Text);
+            /// Refreshing the comboBoxes and listBoxes with a new data
             listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
-            listBoxAccessableOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Employees).ToList();
-            /*comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
-            comboBoxChooseOfficeToAdd.Refresh();
-            comboBoxChooseEmployeeToAdd.DataSource = choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
-            comboBoxChooseEmployeeToAdd.Refresh();*/
+            comboBoxChooseEmployeeToShow.DataSource = listBoxFirmEmployees.DataSource;
+            comboBoxChooseOfficeToShow.DataSource = listBoxFirmOffices.DataSource;
         }
 
         private void ComboBoxChooseEmployeeToShow_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            choosedEmployeeToShow = 
+                choosedFirmToShow.Employees.Find(x => (x.Name + " " + x.Surname) == comboBoxChooseEmployeeToShow.ToString());
+            /// Refreshing the listBox with a new data
+            listBoxAccessableOffices.DataSource = choosedEmployeeToShow.Offices.Select(x => x.Number.ToString()).ToList();
         }
 
         private void ComboBoxChooseOfficeToShow_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            choosedOfficeToShow = 
+                choosedFirmToShow.Offices.Find(x => x.Number.ToString() == comboBoxChooseEmployeeToShow.Text);
+            /// Refreshing the comboBoxes and listBoxes with a new data
+            listBoxOfficeStaff.DataSource = choosedOfficeToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
         }
     }
-    /*
-     * Variant 1
-     */
-    public class City
-    {
-        public string Name { get; }
-        public List<Street> Streets { get; }
-        public City(string name)
-        {
-            Name = name;
-        }
-    }
-    public class Street
-    {
-        public string Name { get; }
-        public List<House> Houses { get; }
-        public Street(string name)
-        {
-            Name = name;
-        }
-    }
-    public class House
-    {
-        public Point Coordinates { get; }
-        public Street Street { get; }
-        public House(Street street, Point coordinates)
-        {
-            Street = street;
-            Coordinates = coordinates;
-        }
-    }
-    /*
-     * Variant 3
-     */
     public class Firm
     {
         public string Name { get; }
