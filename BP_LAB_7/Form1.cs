@@ -26,9 +26,9 @@ namespace BP_LAB_7
                 MessageBox.Show("Firm name is empty");
                 return;
             }
-            /// Main work
             Firm firm = new Firm(textBoxFirmName.Text);
             textBoxFirmName.Text = "";
+            /// Main work
             if (firms.Exists(x => x.Name == firm.Name) == false)     /// If firm doesn't exist
             {
                 firms.Add(firm);
@@ -61,17 +61,18 @@ namespace BP_LAB_7
                 textBoxOfficeNumber.Text = "";
                 return;
             }
-
             Office office = new Office(number);
             textBoxOfficeNumber.Text = "";
             /// Get the firm which is choosed in comboBoxChooseFirmToAdd
             if (choosedFirmToAdd.Offices.Exists(y => y.Number == office.Number) == false)
             {
-                listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
+                choosedFirmToAdd.Offices.Add(office);
                 MessageBox.Show("Added");
                 /// Refreshing the comboBoxes with a new data
-                choosedFirmToAdd.Offices.Add(office);
                 comboBoxChooseOfficeToAdd.DataSource = choosedFirmToAdd.Offices.Select(x => x.Number.ToString()).ToList();
+                comboBoxChooseOfficeToAdd.Refresh();
+                listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
+                comboBoxChooseOfficeToShow.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
             }
             else
             {
@@ -107,7 +108,10 @@ namespace BP_LAB_7
                 /// Refreshing the comboBoxes with a new data
                 comboBoxChooseEmployeeToAdd.DataSource = 
                     choosedFirmToAdd.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                comboBoxChooseEmployeeToAdd.Refresh();
                 listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+                comboBoxChooseEmployeeToShow.DataSource = 
+                    choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             }
             else
             {
@@ -135,13 +139,27 @@ namespace BP_LAB_7
             }
             string employeeString = comboBoxChooseEmployeeToAdd.Text;
             string officeString = comboBoxChooseOfficeToAdd.Text;
-            /// Refreshing the comboBoxes with a new data
             Employee employee = choosedFirmToAdd.Employees.Find(x => x.Name + " " + x.Surname == employeeString);
             Office office = choosedFirmToAdd.Offices.Find(x => x.Number.ToString() == officeString);
             if (employee.Offices.Exists(x => x.Number == office.Number) == false)
             {
                 employee.Offices.Add(office);
                 MessageBox.Show("Added");
+                /// Refreshing the comboBoxes with a new data
+                if(choosedEmployeeToShow != null)
+                    listBoxAccessableOffices.DataSource = choosedEmployeeToShow.Offices.Select(x => x.Number.ToString()).ToList();
+                if (choosedOfficeToShow != null)
+                {
+                    List<string> employees = new List<string>(100);
+                    foreach (Employee employe in choosedFirmToShow.Employees)
+                    {
+                        if (employe.Offices.Contains(choosedOfficeToShow) == true)
+                        {
+                            employees.Add(employe.Name + " " + employe.Surname);
+                        }
+                    }
+                    listBoxOfficeStaff.DataSource = employees;
+                }
             }
             else
             {
@@ -160,24 +178,36 @@ namespace BP_LAB_7
             /// Refreshing the comboBoxes and listBoxes with a new data
             listBoxFirmEmployees.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
             listBoxFirmOffices.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
-            comboBoxChooseEmployeeToShow.DataSource = listBoxFirmEmployees.DataSource;
-            comboBoxChooseOfficeToShow.DataSource = listBoxFirmOffices.DataSource;
+            comboBoxChooseEmployeeToShow.DataSource = choosedFirmToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            comboBoxChooseOfficeToShow.DataSource = choosedFirmToShow.Offices.Select(x => x.Number.ToString()).ToList();
         }
 
         private void ComboBoxChooseEmployeeToShow_SelectedIndexChanged(object sender, EventArgs e)
         {
             choosedEmployeeToShow = 
-                choosedFirmToShow.Employees.Find(x => (x.Name + " " + x.Surname) == comboBoxChooseEmployeeToShow.ToString());
+                choosedFirmToShow.Employees.Find(x => (x.Name + " " + x.Surname) == comboBoxChooseEmployeeToShow.Text);
             /// Refreshing the listBox with a new data
-            listBoxAccessableOffices.DataSource = choosedEmployeeToShow.Offices.Select(x => x.Number.ToString()).ToList();
+            if(choosedEmployeeToShow != null)
+                listBoxAccessableOffices.DataSource = choosedEmployeeToShow.Offices.Select(x => x.Number.ToString()).ToList();
         }
 
         private void ComboBoxChooseOfficeToShow_SelectedIndexChanged(object sender, EventArgs e)
         {
             choosedOfficeToShow = 
-                choosedFirmToShow.Offices.Find(x => x.Number.ToString() == comboBoxChooseEmployeeToShow.Text);
+                choosedFirmToShow.Offices.Find(x => x.Number.ToString() == comboBoxChooseOfficeToShow.Text);
             /// Refreshing the comboBoxes and listBoxes with a new data
-            listBoxOfficeStaff.DataSource = choosedOfficeToShow.Employees.Select(x => x.Name + " " + x.Surname).ToList();
+            if(choosedOfficeToShow != null)
+            {
+                List<string> employees = new List<string>(100);
+                foreach (Employee employee in choosedFirmToShow.Employees)
+                {
+                    if(employee.Offices.Contains(choosedOfficeToShow) == true)
+                    {
+                        employees.Add(employee.Name + " " + employee.Surname);
+                    }
+                }
+                listBoxOfficeStaff.DataSource = employees;
+            }
         }
     }
     public class Firm
@@ -213,11 +243,9 @@ namespace BP_LAB_7
     public class Office
     {
         public uint Number { get; }
-        public List<Employee> Employees { get; }
         public Office(uint number)
         {
             Number = number;
-            Employees = new List<Employee>(100);
         }
     }
 }
