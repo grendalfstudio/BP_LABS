@@ -76,7 +76,7 @@ namespace BP_LAB_7
             }
             else
             {
-                MessageBox.Show("The office is already exists", "Info";
+                MessageBox.Show("The office is already exists", "Info");
             }
         }
 
