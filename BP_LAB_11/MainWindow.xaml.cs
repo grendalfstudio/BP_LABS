@@ -1,4 +1,6 @@
-﻿namespace BP_LAB_11
+﻿using System;
+using System.Windows;
+namespace BP_LAB_11
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -8,6 +10,12 @@
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void BtnChooseFolder_OnClick(object sender, RoutedEventArgs e)
+        {
+             
         }
     }
 }

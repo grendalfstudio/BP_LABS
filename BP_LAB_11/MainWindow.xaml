@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP_LAB_11"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Search" Height="275" Width="250">
     <Grid>
-        
+        <Button x:Name="btnChooseFolder" Content="Choose folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnChooseFolder_OnClick"/>
+        <TextBox x:Name="tbPath" HorizontalAlignment="Left" Height="20" Margin="105,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbCondition" HorizontalAlignment="Left" Height="20" Margin="105,45,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="120"/>
+        <ListView x:Name="lsvResults" HorizontalAlignment="Left" Height="100" Margin="10,105,0,0" VerticalAlignment="Top" Width="215">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnOpen" Content="Open selected file" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Width="215"/>
+        <CheckBox x:Name="matchCase" Content="Match case" HorizontalAlignment="Left" Margin="105,70,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

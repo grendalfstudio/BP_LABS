@@ -13,8 +13,7 @@ namespace BP_LAB_9
     /// </summary>
     public partial class MainWindow
     {
-        private string _path;
-        private string textToAnalysis;
+        private string _textToAnalysis;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +28,7 @@ namespace BP_LAB_9
                 if (openFileDialog.ShowDialog() == true)
                 {
                     rtbFileText.AppendText(File.ReadAllText(openFileDialog.FileName, Encoding.Default));
-                    textToAnalysis = File.ReadAllText(openFileDialog.FileName, Encoding.Default);
+                    _textToAnalysis = File.ReadAllText(openFileDialog.FileName, Encoding.Default);
                     btnAnalyze.IsEnabled = true;
                 }
                 
@@ -47,9 +46,9 @@ namespace BP_LAB_9
                 SortedList<string, int> wordQuantity = new SortedList<string, int>();
                 SortedList<char, int> letterQuantity = new SortedList<char, int>();
 
-                textToAnalysis = PrepareText(textToAnalysis);
+                _textToAnalysis = PrepareText(_textToAnalysis);
 
-                string[] wordsToAnalysis = textToAnalysis.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+                string[] wordsToAnalysis = _textToAnalysis.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
                 foreach (string word in wordsToAnalysis)
                 {

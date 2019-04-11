@@ -146,13 +146,8 @@ namespace BP_LAB_8
                 string result = "";
                 string wordTranslated = "";
                 richTextTranslated.Text = "";
-                
-                input = input.ToLower();
-                input = input.Replace(',', ' ');
-                input = input.Replace('.', ' ');
-                input = input.Replace('!', ' ');
-                input = input.Replace('?', ' '); 
-                input = input.Replace('\n', ' ');    
+
+                input = PrepareText(input);
                 
                 string[] inputList = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -187,6 +182,27 @@ namespace BP_LAB_8
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private string PrepareText(string input)
+        {
+            input = input.ToLower();
+            input = input.Replace(',', ' ');
+            input = input.Replace('.', ' ');
+            input = input.Replace('!', ' ');
+            input = input.Replace('?', ' ');
+            input = input.Replace('\n', ' ');
+            input = input.Replace('\r', ' ');
+            input = input.Replace('/', ' ');
+            input = input.Replace('-', ' ');
+            input = input.Replace(':', ' ');
+            input = input.Replace(';', ' ');
+            input = input.Replace('[', ' ');
+            input = input.Replace(']', ' ');
+            input = input.Replace('«', '\0');
+            input = input.Replace('»', '\0');
+            input = input.Replace('\'', '\0');
+
+            return input;
         }
     }
 }
