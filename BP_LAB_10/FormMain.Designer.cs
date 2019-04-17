@@ -70,29 +70,29 @@
             // menuStripItemCreate
             // 
             this.menuStripItemCreate.Name = "menuStripItemCreate";
-            this.menuStripItemCreate.Size = new System.Drawing.Size(137, 20);
-            this.menuStripItemCreate.Text = "Створити нову фірму";
+            this.menuStripItemCreate.Size = new System.Drawing.Size(103, 20);
+            this.menuStripItemCreate.Text = "Create new firm";
             this.menuStripItemCreate.Click += new System.EventHandler(this.MenuStripItemCreate_Click);
             // 
             // menuStripItemWrite
             // 
             this.menuStripItemWrite.Name = "menuStripItemWrite";
-            this.menuStripItemWrite.Size = new System.Drawing.Size(111, 20);
-            this.menuStripItemWrite.Text = "Записати в файл";
+            this.menuStripItemWrite.Size = new System.Drawing.Size(80, 20);
+            this.menuStripItemWrite.Text = "Write to file";
             this.menuStripItemWrite.Click += new System.EventHandler(this.MenuStripItemWrite_Click);
             // 
             // menuStripItemCheck
             // 
             this.menuStripItemCheck.Name = "menuStripItemCheck";
-            this.menuStripItemCheck.Size = new System.Drawing.Size(147, 20);
-            this.menuStripItemCheck.Text = "Перевірити працівника";
+            this.menuStripItemCheck.Size = new System.Drawing.Size(127, 20);
+            this.menuStripItemCheck.Text = "Check the employee";
             this.menuStripItemCheck.Click += new System.EventHandler(this.MenuStripItemCheck_Click);
             // 
             // menuStripItemExit
             // 
             this.menuStripItemExit.Name = "menuStripItemExit";
-            this.menuStripItemExit.Size = new System.Drawing.Size(47, 20);
-            this.menuStripItemExit.Text = "Вихід";
+            this.menuStripItemExit.Size = new System.Drawing.Size(48, 20);
+            this.menuStripItemExit.Text = "Brexit";
             this.menuStripItemExit.Click += new System.EventHandler(this.MenuStripItemExit_Click);
             // 
             // groupBoxCheck
