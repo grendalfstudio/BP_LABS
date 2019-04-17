@@ -27,7 +27,7 @@ namespace BP_LAB_11
              if (folderBrowserDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
              _folderPath = folderBrowserDialog.SelectedPath;
              tbPath.Text = _folderPath;
-             Console.WriteLine(_folderPath);
+             tbCondition.Text = "";
         }
 
         private void BtnSearch_OnClick(object sender, RoutedEventArgs e)
