@@ -132,8 +132,8 @@ namespace BP_LAB_11
         {
             try
             {
-                string filePath = lsvResults.SelectedItem as string;
-                Process.Start("explorer.exe", "/select, " + filePath);
+                if (lsvResults.SelectedItem is string filePath)
+                    Process.Start("explorer.exe", "/select, " + filePath);
             }
             catch (Exception ex)
             {
