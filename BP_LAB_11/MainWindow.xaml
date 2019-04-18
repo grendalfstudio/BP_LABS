@@ -15,7 +15,7 @@
         <ListView x:Name="lsvResults" HorizontalAlignment="Left" MinHeight="100" Margin="10,110,10,25" VerticalAlignment="Top" MinWidth="415">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Path to file"/>
                 </GridView>
             </ListView.View>
         </ListView>
