@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
+using MessageBox = System.Windows.MessageBox;
 
 namespace BP_LAB_11
 {
@@ -24,17 +27,30 @@ namespace BP_LAB_11
              if (folderBrowserDialog.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
              _folderPath = folderBrowserDialog.SelectedPath;
              tbPath.Text = _folderPath;
+             tbCondition.Text = "";
         }
 
         private void BtnSearch_OnClick(object sender, RoutedEventArgs e)
         {
-            string pattern = tbCondition.Text;
-            
+            try
+            {
+                string pattern = tbCondition.Text;
+                List<string> fileList = new List<string>();
+                Search(_folderPath, pattern, ref fileList);
+                lsvResults.ItemsSource = fileList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
             
         }
         
-        private bool strmatch(string str, string pattern, int n, int m) 
+        private bool strmatch(string str, string pattern)
         {
+            int n = str.Count();
+            int m = pattern.Count();
+            
             if (!(bool) matchCase.IsChecked)
             {
                 str = str.ToLower();
@@ -75,6 +91,54 @@ namespace BP_LAB_11
             } 
 	
             return lookup[n][m]; 
+        }
+
+        private void Search(string directory, string pattern, ref List<string> fileList)
+        {
+            List<string> innnerFileList = new List<string>();
+            string[] fileNameList = Directory.GetFiles(@directory);
+            string[] directoryPathList = Directory.GetDirectories(@directory);
+            foreach (var file in fileNameList)
+            {
+                string fileName = file.Substring(file.LastIndexOf('\\'));
+                if (!(bool) matchCase.IsChecked)
+                {
+                    fileName = fileName.ToLower();
+                    pattern = pattern.ToLower();
+                }
+                if (!pattern.Contains('*') && !pattern.Contains('?'))
+                {
+                    if (fileName.Contains(pattern))
+                    {
+                        innnerFileList.Add(file);
+                    }
+                }
+                else
+                {
+                    if (strmatch(fileName, pattern))
+                    {
+                        innnerFileList.Add(file);
+                    }
+                }
+            }
+            fileList =  fileList.Concat(innnerFileList).ToList();
+            foreach (var dir in directoryPathList)
+            {
+                Search(dir, pattern, ref fileList);
+            }
+        }
+
+        private void BtnOpen_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string filePath = lsvResults.SelectedItem as string;
+                Process.Start("explorer.exe", "/select, " + filePath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
     }
     public static class ArrayExtensions {

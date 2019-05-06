@@ -4,22 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BP_LAB_11"
+        x:Name="Window"
         mc:Ignorable="d"
         Title="Search" Height="275" Width="450">
     <Grid>
-        <Button x:Name="btnChooseFolder" Content="Choose folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BtnChooseFolder_OnClick"/>
-        <TextBox x:Name="tbPath" HorizontalAlignment="Left" Height="20" Margin="105,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="320"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="75" Click="BtnSearch_OnClick"/>
-        <TextBox x:Name="tbCondition" HorizontalAlignment="Left" Height="20" Margin="105,45,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" Width="320"/>
-        <ListView x:Name="lsvResults" HorizontalAlignment="Left" Height="100" Margin="10,105,0,0" VerticalAlignment="Top" Width="415">
+        <Button x:Name="btnChooseFolder" Content="Choose folder" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" MinWidth="95" Click="BtnChooseFolder_OnClick"/>
+        <TextBox x:Name="tbPath" HorizontalAlignment="Left" Height="20" Margin="110,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" MinWidth="320"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" MinWidth="95" Click="BtnSearch_OnClick"/>
+        <TextBox x:Name="tbCondition" HorizontalAlignment="Left" Height="20" Margin="110,45,0,0" TextWrapping="Wrap" Text="Condition" VerticalAlignment="Top" MinWidth="320"/>
+        <ListView x:Name="lsvResults" HorizontalAlignment="Left" MinHeight="100" Margin="10,110,10,25" VerticalAlignment="Top" MinWidth="415">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Path to file"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnOpen" Content="Open selected file" HorizontalAlignment="Left" Margin="10,211,0,0" VerticalAlignment="Top" Width="415"/>
-        <CheckBox x:Name="matchCase" Content="Match case" HorizontalAlignment="Left" Margin="105,70,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnOpen" Content="Open selected file" HorizontalAlignment="Center" Margin="0, 0, 0, 5" VerticalAlignment="Bottom" MinWidth="415" Click="BtnOpen_OnClick"/>
+        <CheckBox x:Name="matchCase" Content="Match case" HorizontalAlignment="Left" Margin="110,70,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
