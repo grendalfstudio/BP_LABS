@@ -5,11 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace BP_LAB_12
 {
@@ -24,7 +25,7 @@ namespace BP_LAB_12
             InitializeComponent();
             g = pictureBoxMain.CreateGraphics();
             timer = new Timer();
-            timer.Interval = 1000;
+            timer.Interval = 10;
             timer.Tick += Timer_Tick;
         }
 
@@ -36,14 +37,14 @@ namespace BP_LAB_12
             trapezoid1 = new Trapezoid(g, 50, 150, firstAngle);
             trapezoid2 = new Trapezoid(g, 500, 150, secondAngle);
 
-            /// Serializing the trapezoids
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream1 = new FileStream("Trapezoid1.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream1, trapezoid1);
-            stream1.Close();
-            Stream stream2 = new FileStream("Trapezoid2.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream2, trapezoid2);
-            stream1.Close();
+            ///// Serializing the trapezoids
+            //IFormatter formatter = new BinaryFormatter();
+            //Stream stream1 = new FileStream("Trapezoid1.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            //formatter.Serialize(stream1, trapezoid1);
+            //stream1.Close();
+            //Stream stream2 = new FileStream("Trapezoid2.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            //formatter.Serialize(stream2, trapezoid2);
+            //stream1.Close();
 
             ///Main actions
             trapezoid1.Draw();
@@ -53,8 +54,9 @@ namespace BP_LAB_12
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            trapezoid1.Move();
-            trapezoid2.Move();
+            g.Clear(FormMain.DefaultBackColor);
+            trapezoid1.Move(2, 0);
+            trapezoid2.Move(-2, 0);
         }
     }
     [Serializable]
@@ -78,10 +80,12 @@ namespace BP_LAB_12
         {
             g.DrawPolygon(pen, points);
         }
-        public void Move()
+        public void Move(int offsetX, int offsetY)
         {
-            g.Clear(Color.Red);
-
+            Matrix m = new Matrix();
+            m.Translate(offsetX, offsetY);
+            m.TransformPoints(points);
+            g.DrawPolygon(pen, points);
         }
     }
 }
