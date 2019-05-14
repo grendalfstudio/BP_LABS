@@ -55,8 +55,8 @@ namespace BP_LAB_12
         private void Timer_Tick(object sender, EventArgs e)
         {
             g.Clear(FormMain.DefaultBackColor);
-            trapezoid1.Move(2, 0);
-            trapezoid2.Move(-2, 0);
+            trapezoid1.Move(2, 0, 0.999F);
+            trapezoid2.Move(-2, 0, 1.001F);
         }
     }
     [Serializable]
@@ -80,10 +80,13 @@ namespace BP_LAB_12
         {
             g.DrawPolygon(pen, points);
         }
-        public void Move(int offsetX, int offsetY)
+        public void Move(int offsetX, int offsetY, float scale)
         {
             Matrix m = new Matrix();
             m.Translate(offsetX, offsetY);
+            m.TransformPoints(points);
+            m.Reset();
+            m.Scale(scale, scale);
             m.TransformPoints(points);
             g.DrawPolygon(pen, points);
         }
