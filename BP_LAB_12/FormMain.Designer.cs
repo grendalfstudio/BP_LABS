@@ -43,7 +43,7 @@
             // pictureBoxMain
             // 
             this.pictureBoxMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxMain.Location = new System.Drawing.Point(318, 12);
+            this.pictureBoxMain.Location = new System.Drawing.Point(424, 12);
             this.pictureBoxMain.Name = "pictureBoxMain";
             this.pictureBoxMain.Size = new System.Drawing.Size(600, 400);
             this.pictureBoxMain.TabIndex = 0;
@@ -54,9 +54,9 @@
             this.labelFirstTrapezoid.AutoSize = true;
             this.labelFirstTrapezoid.Location = new System.Drawing.Point(12, 15);
             this.labelFirstTrapezoid.Name = "labelFirstTrapezoid";
-            this.labelFirstTrapezoid.Size = new System.Drawing.Size(230, 13);
+            this.labelFirstTrapezoid.Size = new System.Drawing.Size(234, 13);
             this.labelFirstTrapezoid.TabIndex = 1;
-            this.labelFirstTrapezoid.Text = "Input the angle of the first trapezoid (in radians):";
+            this.labelFirstTrapezoid.Text = "Input the angle of the first trapezoid (in degrees):";
             // 
             // textBoxFirstTrapezoid
             // 
@@ -79,9 +79,9 @@
             this.labelSecondTrapezoid.AutoSize = true;
             this.labelSecondTrapezoid.Location = new System.Drawing.Point(12, 41);
             this.labelSecondTrapezoid.Name = "labelSecondTrapezoid";
-            this.labelSecondTrapezoid.Size = new System.Drawing.Size(231, 13);
+            this.labelSecondTrapezoid.Size = new System.Drawing.Size(235, 13);
             this.labelSecondTrapezoid.TabIndex = 3;
-            this.labelSecondTrapezoid.Text = "Input the angle of second trapezoid (in radians):";
+            this.labelSecondTrapezoid.Text = "Input the angle of second trapezoid (in degrees):";
             // 
             // buttonStart
             // 
@@ -98,7 +98,7 @@
             this.pictureBoxDeserialized.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxDeserialized.Location = new System.Drawing.Point(12, 112);
             this.pictureBoxDeserialized.Name = "pictureBoxDeserialized";
-            this.pictureBoxDeserialized.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxDeserialized.Size = new System.Drawing.Size(406, 300);
             this.pictureBoxDeserialized.TabIndex = 6;
             this.pictureBoxDeserialized.TabStop = false;
             // 
@@ -111,11 +111,11 @@
             this.labelDeserialized.TabIndex = 7;
             this.labelDeserialized.Text = "Deserialized figures:";
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 424);
+            this.ClientSize = new System.Drawing.Size(1036, 424);
             this.Controls.Add(this.labelDeserialized);
             this.Controls.Add(this.pictureBoxDeserialized);
             this.Controls.Add(this.buttonStart);
@@ -124,7 +124,7 @@
             this.Controls.Add(this.textBoxFirstTrapezoid);
             this.Controls.Add(this.labelFirstTrapezoid);
             this.Controls.Add(this.pictureBoxMain);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "BP_LAB_12";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDeserialized)).EndInit();
