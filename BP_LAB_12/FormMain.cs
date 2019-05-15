@@ -19,11 +19,15 @@ namespace BP_LAB_12
         private Timer timer;
         private Graphics g;
         private Graphics graphics;
+        private delegate void CollisionHandler();
+        event CollisionHandler Collision;
         private float firstAngle;
         private float secondAngle;
         private Trapezoid trapezoid1;
         private Trapezoid trapezoid2;
         private United newFigure;
+
+
         public FormMain()
         {
             InitializeComponent();
@@ -32,6 +36,11 @@ namespace BP_LAB_12
             timer = new Timer();
             timer.Interval = 10;
             timer.Tick += Timer_Tick;
+        }
+
+        private void CollisionAlert()
+        {
+            labelColl.ForeColor = Color.Red;
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -51,6 +60,9 @@ namespace BP_LAB_12
             formatter.Serialize(stream2, trapezoid2);
             stream2.Close();
 
+            Collision += CollisionAlert;
+            progressColl.Value = 0;
+            progressColl.Maximum = (int)(trapezoid2.MaxLeft() - trapezoid1.MaxRight())/2 - 46;
             ///Main actions
             timer.Start();
         }
@@ -59,6 +71,10 @@ namespace BP_LAB_12
         {
             if (trapezoid1.MaxRight() - trapezoid2.MaxLeft() >= 0)      /// If figures got into collision
             {
+                if (Collision != null)
+                {
+                    Collision();
+                }
                 if(newFigure == null)              /// First tick when figure got into collision
                 {
                     /// Rotation of trapezoid2
@@ -124,6 +140,7 @@ namespace BP_LAB_12
             else
             {       /// Moving of trapezoids to the center
                 g.Clear(FormMain.DefaultBackColor);
+                progressColl.Value += 2;
                 trapezoid1.Move(2, 0);
                 trapezoid1.Scale(1.01F);
 

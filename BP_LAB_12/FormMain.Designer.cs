@@ -36,6 +36,8 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.pictureBoxDeserialized = new System.Windows.Forms.PictureBox();
             this.labelDeserialized = new System.Windows.Forms.Label();
+            this.labelColl = new System.Windows.Forms.Label();
+            this.progressColl = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDeserialized)).BeginInit();
             this.SuspendLayout();
@@ -111,11 +113,31 @@
             this.labelDeserialized.TabIndex = 7;
             this.labelDeserialized.Text = "Deserialized figures:";
             // 
+            // labelColl
+            // 
+            this.labelColl.AutoSize = true;
+            this.labelColl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelColl.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.labelColl.Location = new System.Drawing.Point(334, 13);
+            this.labelColl.Name = "labelColl";
+            this.labelColl.Size = new System.Drawing.Size(60, 17);
+            this.labelColl.TabIndex = 8;
+            this.labelColl.Text = "Collision";
+            // 
+            // progressColl
+            // 
+            this.progressColl.Location = new System.Drawing.Point(156, 69);
+            this.progressColl.Name = "progressColl";
+            this.progressColl.Size = new System.Drawing.Size(262, 23);
+            this.progressColl.TabIndex = 9;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 424);
+            this.Controls.Add(this.progressColl);
+            this.Controls.Add(this.labelColl);
             this.Controls.Add(this.labelDeserialized);
             this.Controls.Add(this.pictureBoxDeserialized);
             this.Controls.Add(this.buttonStart);
@@ -143,6 +165,8 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.PictureBox pictureBoxDeserialized;
         private System.Windows.Forms.Label labelDeserialized;
+        private System.Windows.Forms.Label labelColl;
+        private System.Windows.Forms.ProgressBar progressColl;
     }
 }
 
