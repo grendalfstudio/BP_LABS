@@ -27,6 +27,8 @@ namespace BP_LAB_12
         private Trapezoid trapezoid2;
         private United newFigure;
 
+        private const float scale = 1.01F;
+        private const int translation = 2;
 
         public FormMain()
         {
@@ -34,7 +36,7 @@ namespace BP_LAB_12
             g = pictureBoxMain.CreateGraphics();
             graphics = pictureBoxDeserialized.CreateGraphics();
             timer = new Timer();
-            timer.Interval = 10;
+            timer.Interval = 50;
             timer.Tick += Timer_Tick;
         }
 
@@ -60,10 +62,11 @@ namespace BP_LAB_12
             formatter.Serialize(stream2, trapezoid2);
             stream2.Close();
 
+            ///Main actions
             Collision += CollisionAlert;
             progressColl.Value = 0;
-            progressColl.Maximum = (int)(trapezoid2.MaxLeft() - trapezoid1.MaxRight())/2 - 46;
-            ///Main actions
+            progressColl.Maximum = (int)(trapezoid2.MaxLeft() - trapezoid1.MaxRight());
+            progressColl.Step = 2 * translation;
             timer.Start();
         }
 
@@ -140,12 +143,12 @@ namespace BP_LAB_12
             else
             {       /// Moving of trapezoids to the center
                 g.Clear(FormMain.DefaultBackColor);
-                progressColl.Value += 2;
-                trapezoid1.Move(2, 0);
-                trapezoid1.Scale(1.01F);
+                progressColl.PerformStep();
+                trapezoid1.Move(translation, 0);
+                trapezoid1.Scale(scale);
 
-                trapezoid2.Move(-2, 0);
-                trapezoid2.Scale(1.01F);
+                trapezoid2.Move(-translation, 0);
+                trapezoid2.Scale(scale);
 
                 trapezoid1.Draw();
                 trapezoid2.Draw();
