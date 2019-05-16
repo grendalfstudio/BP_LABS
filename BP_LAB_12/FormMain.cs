@@ -26,7 +26,7 @@ namespace BP_LAB_12
         private Trapezoid trapezoid1;
         private Trapezoid trapezoid2;
         private United newFigure;
-
+        private int counter;
 
         public FormMain()
         {
@@ -34,7 +34,7 @@ namespace BP_LAB_12
             g = pictureBoxMain.CreateGraphics();
             graphics = pictureBoxDeserialized.CreateGraphics();
             timer = new Timer();
-            timer.Interval = 10;
+            timer.Interval = 25;
             timer.Tick += Timer_Tick;
         }
 
@@ -50,6 +50,8 @@ namespace BP_LAB_12
             secondAngle = float.Parse(textBoxSecondTrapezoid.Text);
             trapezoid1 = new Trapezoid(g, 50, 150, firstAngle);
             trapezoid2 = new Trapezoid(g, 500, 150, secondAngle);
+            newFigure = null;
+            int progressMax = 0;
 
             /// Serializing the trapezoids
             IFormatter formatter = new BinaryFormatter();
@@ -61,8 +63,9 @@ namespace BP_LAB_12
             stream2.Close();
 
             Collision += CollisionAlert;
-            progressColl.Value = 0;
-            progressColl.Maximum = (int)(trapezoid2.MaxLeft() - trapezoid1.MaxRight())/2 - 46;
+            progressColl.Minimum = (int)trapezoid1.MaxRight();
+            progressMax = Convert.ToInt32((trapezoid2.MaxLeft() - trapezoid1.MaxRight())/2 + trapezoid1.MaxRight());
+            progressColl.Maximum = progressMax;
             ///Main actions
             timer.Start();
         }
@@ -77,6 +80,7 @@ namespace BP_LAB_12
                 }
                 if(newFigure == null)              /// First tick when figure got into collision
                 {
+                    progressColl.Value = progressColl.Maximum;
                     /// Rotation of trapezoid2
                     Matrix matrix = new Matrix();
                     matrix.RotateAt(-(180 - firstAngle - secondAngle), trapezoid2.points[0]);
@@ -140,7 +144,8 @@ namespace BP_LAB_12
             else
             {       /// Moving of trapezoids to the center
                 g.Clear(FormMain.DefaultBackColor);
-                progressColl.Value += 2;
+
+                progressColl.Value = (int)trapezoid1.MaxRight();
                 trapezoid1.Move(2, 0);
                 trapezoid1.Scale(1.01F);
 
