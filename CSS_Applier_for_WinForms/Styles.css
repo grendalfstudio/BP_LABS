@@ -1,0 +1,40 @@
+﻿button {
+    background-color: aqua;
+    color: red;
+    cursor: copy;
+    fill: blue;
+    font-family: 'Microsoft Sans Serif';
+    font-size: 8px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    text-decoration: underline;
+}
+
+label {
+    font-size: 110%;
+    color: red;
+    background: white;
+}
+
+textbox {
+    color: red;
+    background: yellow;
+    font-weight: bold;
+}
+
+checkbox {
+    background: green;
+}
+
+combobox {
+    margin: 0;
+}
+
+radiobutton {
+    text-decoration: none;
+}
+
+listbox {
+    color: red;
+}

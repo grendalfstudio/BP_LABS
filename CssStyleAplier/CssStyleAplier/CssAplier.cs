@@ -14,7 +14,7 @@ namespace CssStyleAplier
     {
         StreamReader stream;
         string projectDirectory = Directory.GetParent(Assembly.GetExecutingAssembly().Location).Parent.Parent.FullName;
-        CssAplier()
+        public CssAplier()
         {
         }
         public void ApplyStyleFor(object Object)
@@ -26,6 +26,10 @@ namespace CssStyleAplier
             string[] strings = stream.ReadToEnd().Split(new char[]{ '{', '}' });
             for (int i = 0; i < strings.Length; i += 2)
             {
+                foreach (string str in strings)
+                {
+                    Console.WriteLine(str);
+                }
                 if (strings[i] == Object.GetType().ToString().ToLower())      // Finds properties of the necessary control
                 {
                     if (i + 1 < strings.Length)
@@ -63,8 +67,8 @@ namespace CssStyleAplier
         }
         private void ReadStyleFor(Button control, string properties)
         {
-            Button button;
-            button.Font = new Font();
+            Button button = control;
+            button.ForeColor = Color.Aqua;
         }
         private void ReadStyleFor(Label control, string properties)
         {

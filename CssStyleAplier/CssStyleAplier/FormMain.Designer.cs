@@ -28,24 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button = new System.Windows.Forms.Button();
             this.label = new System.Windows.Forms.Label();
             this.textBox = new System.Windows.Forms.TextBox();
             this.checkBox = new System.Windows.Forms.CheckBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.radioButton = new System.Windows.Forms.RadioButton();
             this.listBox = new System.Windows.Forms.ListBox();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button
-            // 
-            this.button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button.Location = new System.Drawing.Point(12, 12);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(200, 50);
-            this.button.TabIndex = 0;
-            this.button.Text = "Button";
-            this.button.UseVisualStyleBackColor = true;
             // 
             // label
             // 
@@ -118,34 +108,43 @@
             this.listBox.Size = new System.Drawing.Size(200, 69);
             this.listBox.TabIndex = 6;
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(12, 12);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(200, 50);
+            this.btnTest.TabIndex = 7;
+            this.btnTest.Text = "button1";
+            this.btnTest.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(234, 266);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.radioButton);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.checkBox);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.button);
             this.Name = "FormMain";
             this.Text = "CSS Style Aplier";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.CheckBox checkBox;
         private System.Windows.Forms.ComboBox comboBox;
         private System.Windows.Forms.RadioButton radioButton;
         private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 

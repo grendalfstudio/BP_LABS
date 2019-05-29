@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CssStyleAplier
+namespace CSS
 {
     public partial class FormMain : Form
     {
+        string _ssPath;
+
         public FormMain()
         {
             InitializeComponent();
@@ -19,8 +21,11 @@ namespace CssStyleAplier
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //CssAplier style = new CssAplier();
-            //style.ApplyStyleFor(button);
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if (fileDialog.ShowDialog() != DialogResult.OK) return;
+            _ssPath = fileDialog.FileName;
+            CSSReader reader = new CSSReader(_ssPath);
+            reader.ApplyStyle(btnTest);
         }
     }
 }
