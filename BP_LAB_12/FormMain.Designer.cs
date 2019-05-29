@@ -166,7 +166,7 @@
         private System.Windows.Forms.PictureBox pictureBoxDeserialized;
         private System.Windows.Forms.Label labelDeserialized;
         private System.Windows.Forms.Label labelColl;
-        private System.Windows.Forms.ProgressBar progressColl;
+        protected internal System.Windows.Forms.ProgressBar progressColl;
     }
 }
 
