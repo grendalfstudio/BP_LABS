@@ -26,6 +26,12 @@ namespace CSS
             _ssPath = fileDialog.FileName;
             CSSReader reader = new CSSReader(_ssPath);
             reader.ApplyStyle(btnTest);
+            reader.ApplyStyle(tbTest);
+            reader.ApplyStyle(cbTest);
+            reader.ApplyStyle(chbTest);
+            reader.ApplyStyle(lblTest);
+            reader.ApplyStyle(lbTest);
+            reader.ApplyStyle(rbTest);
         }
     }
 }

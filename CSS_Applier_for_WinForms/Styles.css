@@ -1,38 +1,62 @@
 ﻿button {
     background-color: aqua;
     color: red;
-    cursor: copy;
     font-family: Microsoft Sans Serif;
-    font-size: 8px;
-    font-weight: bold;
+    font-size: 12px;
     font-style: italic;
     text-align: topcenter;
 }
 
 label {
-    font-size: 110%;
+    background-color: aqua;
     color: red;
-    background: white;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: topcenter;
 }
 
 textbox {
+    background-color: aqua;
     color: red;
-    background: yellow;
-    font-weight: bold;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
 }
 
 checkbox {
-    background: green;
+    background-color: aqua;
+    color: red;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: topcenter;
 }
 
 combobox {
-    margin: 0;
+    background-color: aqua;
+    color: red;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
 }
 
 radiobutton {
-    text-decoration: none;
+    background-color: aqua;
+    color: red;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: topcenter;
 }
 
 listbox {
+    background-color: aqua;
     color: red;
+    font-family: Microsoft Sans Serif;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
 }
